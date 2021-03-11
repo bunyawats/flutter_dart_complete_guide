@@ -10,13 +10,19 @@ class Answer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.all(20),
-      child: RaisedButton(
-        child: Text(this.answer),
-        color: Colors.blue,
+      margin: EdgeInsets.all(10),
+      child: ElevatedButton(
+        child: Text(
+          this.answer,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.blue),
+        ),
         onPressed: this.callback,
       ),
-      
     );
   }
 }

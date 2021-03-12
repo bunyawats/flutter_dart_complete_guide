@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './answer.dart';
-import './question.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() => runApp(QuizApp());
 
@@ -13,28 +13,46 @@ class QuizApp extends StatefulWidget {
 class _QuizAppState extends State<QuizApp> {
   final _questionList = const [
     {
-      'questionText': 'What \'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White'],
+      'questionText': 'What\'s your favorite color?',
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1},
+      ],
     },
     {
-      'questionText': 'What \'s your favorite animal?',
-      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      'questionText': 'What\'s your favorite animal?',
+      'answers': [
+        {'text': 'Rabbit', 'score': 3},
+        {'text': 'Snake', 'score': 11},
+        {'text': 'Elephant', 'score': 5},
+        {'text': 'Lion', 'score': 9},
+      ],
     },
     {
-      'questionText': 'What \'s your favorite instructor?',
-      'answers': ['Max', 'Max', 'Max', 'Max'],
+      'questionText': 'Who\'s your favorite instructor?',
+      'answers': [
+        {'text': 'Max', 'score': 1},
+        {'text': 'Max', 'score': 1},
+        {'text': 'Max', 'score': 1},
+        {'text': 'Max', 'score': 1},
+      ],
     },
   ];
 
-  var _index = 0;
+  var _questionIndex = 0;
+  var _totalSore = 0;
 
-  void _answerAction() {
-    if (_index < _questionList.length) {
+  void _answerQuestion(int score) {
+    _totalSore = _totalSore + score;
+
+    if (_questionIndex < _questionList.length) {
       print('We have more questions');
     }
 
     setState(() {
-      _index = _index + 1;
+      _questionIndex = _questionIndex + 1;
     });
   }
 
@@ -46,24 +64,14 @@ class _QuizAppState extends State<QuizApp> {
         appBar: AppBar(
           title: Text('Quiz App'),
         ),
-        body: (_index < _questionList.length)
-            ? Column(
-                children: <Widget>[
-                  Question(
-                    _questionList.elementAt(_index)['questionText'],
-                  ),
-                  ...(_questionList.elementAt(_index)['answers']
-                          as List<String>)
-                      .map((_answer) {
-                    return Answer(
-                      answer: _answer,
-                      callback: _answerAction,
-                    );
-                  }).toList(),
-                ],
+        body: (_questionIndex < _questionList.length)
+            ? Quiz(
+                questionList: _questionList,
+                index: _questionIndex,
+                answerQuestion: _answerQuestion,
               )
-            : Center(
-                child: Text('You did it'),
+            : Result(
+                resultScore: _totalSore,
               ),
       ),
     );

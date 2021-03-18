@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
+  final Function resetQuiz;
 
-  const Result({Key key, this.resultScore}) : super(key: key);
+  const Result({
+    Key key,
+    this.resultScore,
+    this.resetQuiz,
+  }) : super(key: key);
 
   String get resultPhase {
     String resultText;
@@ -12,7 +17,7 @@ class Result extends StatelessWidget {
     } else if (resultScore <= 12) {
       resultText = 'Pretty likeable';
     } else if (resultScore <= 16) {
-      resultText = 'Yoe are ... strange?!';
+      resultText = 'You are ... strange?!';
     } else {
       resultText = 'You are so bad!';
     }
@@ -24,12 +29,26 @@ class Result extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text(
-          resultPhase,
-          style: TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
-          ),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.all(10),
+              child: Text(
+                resultPhase,
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            TextButton(
+              onPressed: resetQuiz,
+              child: Text('Restart Quiz'),
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all(Colors.blue),
+              ),
+            )
+          ],
         ),
       ),
     );

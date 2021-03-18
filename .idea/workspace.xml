@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/flutter_assignment/lab1/main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/flutter_assignment/lab1/text.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/flutter_assignment/lab1/text_controller.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/column-alignment/main.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/column-alignment/tramsaction_card.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/column-alignment/transaction.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/quiz_app/app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/quiz_app/app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/quiz_app/result.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/quiz_app/result.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +59,7 @@
       <recent name="$PROJECT_DIR$/lib/flutter_assignment/lab1" />
     </key>
   </component>
-  <component name="RunManager" selected="Flutter.main.dart (1)">
+  <component name="RunManager" selected="Flutter.main.dart (2)">
     <configuration name="app_main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/lib/quiz_app/app_main.dart" />
       <method v="2" />
@@ -71,8 +68,13 @@
       <option name="filePath" value="$PROJECT_DIR$/lib/flutter_assignment/lab1/main.dart" />
       <method v="2" />
     </configuration>
+    <configuration name="main.dart (2)" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/column-alignment/main.dart" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Flutter.main.dart (2)" />
         <item itemvalue="Flutter.main.dart (1)" />
         <item itemvalue="Flutter.app_main.dart" />
       </list>

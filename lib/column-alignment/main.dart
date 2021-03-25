@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './transaction.dart';
-import './tramsaction_card.dart';
+import './transaction_card.dart';
+import './add_transaction_card.dart';
 
 void main() => runApp(App());
 
@@ -39,7 +40,7 @@ class App extends StatelessWidget {
         body: Container(
           width: double.infinity,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Container(
@@ -54,6 +55,7 @@ class App extends StatelessWidget {
                   elevation: 5,
                 ),
               ),
+              AddTransactionCard(),
               Column(
                 children: transactions
                     .map((tx) => TransactionCard(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import './transaction.dart';
 
 class TransactionCard extends StatelessWidget {
   final Transaction transaction;
 
-  const TransactionCard({
+  TransactionCard({
     this.transaction,
     Key key,
   }) : super(key: key);
@@ -27,7 +28,7 @@ class TransactionCard extends StatelessWidget {
                 width: 2,
               )),
               child: Text(
-                transaction.amount.toString(),
+                '\$${transaction.amount}',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -51,7 +52,7 @@ class TransactionCard extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(5),
                   child: Text(
-                    transaction.date.toString(),
+                    '${DateFormat.yMMMMd().format(transaction.date)}',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,

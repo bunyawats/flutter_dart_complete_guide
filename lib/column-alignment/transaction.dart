@@ -13,3 +13,24 @@ class Transaction {
     @required this.date,
   });
 }
+
+final transactionList = [
+  Transaction(
+    id: 'tq',
+    title: 'New Shoe',
+    amount: 100,
+    date: DateTime.now(),
+  ),
+  Transaction(
+    id: 't2',
+    title: 'New Shoe',
+    amount: 100,
+    date: DateTime.now(),
+  ),
+  Transaction(
+    id: 't3',
+    title: 'New Shoe',
+    amount: 100,
+    date: DateTime.now(),
+  ),
+];

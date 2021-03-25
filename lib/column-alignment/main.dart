@@ -8,26 +8,7 @@ void main() => runApp(App());
 class App extends StatelessWidget {
   final title = 'Column Alignment';
 
-  final List<Transaction> transactions = [
-    Transaction(
-      id: 'tq',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-  ];
+  final List<Transaction> transactions = transactionList;
 
   @override
   Widget build(BuildContext context) {

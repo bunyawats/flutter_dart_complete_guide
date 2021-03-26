@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class NewTransactionCard extends StatelessWidget {
+class NewTransactionCard extends StatefulWidget {
   final Function callBack;
 
-  final titleController = TextEditingController();
-  final amountController = TextEditingController();
 
   NewTransactionCard({Key key, this.callBack}) : super(key: key);
+
+  @override
+  _NewTransactionCardState createState() => _NewTransactionCardState();
+}
+
+class _NewTransactionCardState extends State<NewTransactionCard> {
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   void submitData() {
     final enterTitle = titleController.text;
@@ -19,10 +25,12 @@ class NewTransactionCard extends StatelessWidget {
     if (enterTitle.isEmpty || enterAmount <= 0) {
       return;
     }
-    callBack(
+    widget.callBack(
       titleController.text,
       double.parse(amountController.text),
     );
+
+    Navigator.of(context).pop();
   }
 
   @override
@@ -44,7 +52,9 @@ class NewTransactionCard extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'Amount',
               ),
-              inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[-+.0-9]'))],
+              inputFormatters: [
+                FilteringTextInputFormatter.allow(RegExp(r'[-+.0-9]')),
+              ],
               keyboardType: TextInputType.number,
               onSubmitted: (_) => submitData(),
             ),

@@ -16,22 +16,24 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              child: Card(
-                child: Text(
-                  'Card 1',
-                  textAlign: TextAlign.center,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                child: Card(
+                  child: Text(
+                    'Card 1',
+                    textAlign: TextAlign.center,
+                  ),
+                  color: Colors.green,
+                  margin: EdgeInsets.all(10),
+                  elevation: 5,
                 ),
-                color: Colors.green,
-                margin: EdgeInsets.all(10),
-                elevation: 5,
               ),
-            ),
-            UserTransaction(),
-          ],
+              UserTransaction(),
+            ],
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class NewTransactionCard extends StatelessWidget {
   final Function callBack;
@@ -7,6 +8,22 @@ class NewTransactionCard extends StatelessWidget {
   final amountController = TextEditingController();
 
   NewTransactionCard({Key key, this.callBack}) : super(key: key);
+
+  void submitData() {
+    final enterTitle = titleController.text;
+    final enterAmount = double.parse(amountController.text);
+
+    print('titleInput : $enterTitle');
+    print('amountInput : $enterAmount');
+
+    if (enterTitle.isEmpty || enterAmount <= 0) {
+      return;
+    }
+    callBack(
+      titleController.text,
+      double.parse(amountController.text),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +44,12 @@ class NewTransactionCard extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'Amount',
               ),
+              inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'[-+.0-9]'))],
+              keyboardType: TextInputType.number,
+              onSubmitted: (_) => submitData(),
             ),
             TextButton(
-              onPressed: () {
-                print('titleInput : ${titleController.text}');
-                print('amountInput : ${amountController.text}');
-
-                callBack(
-                  titleController.text,
-                  double.parse(amountController.text),
-                );
-              },
+              onPressed: submitData,
               child: Text('Add Transaction'),
               style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all(Colors.purple),

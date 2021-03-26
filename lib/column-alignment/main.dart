@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widget/chart.dart';
 import 'model/transaction.dart';
 import 'widget/new_transaction.dart';
 import 'widget/transaction_list.dart';
@@ -93,6 +94,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  List<Transaction> get _recentTransactions {
+    return _userTransactions.where( (tx) {
+      return tx.date.isAfter(DateTime.now().subtract(
+        Duration(
+          days: 7,
+        ),
+      ));
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,17 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              child: Card(
-                child: Text(
-                  'Card 1',
-                  textAlign: TextAlign.center,
-                ),
-                color: Colors.green,
-                margin: EdgeInsets.all(10),
-                elevation: 5,
-              ),
+            Chart(
+              recentTransactions: _recentTransactions,
             ),
             TransactionList(
               transactions: _userTransactions,

@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/fonts/OpenSans-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/OpenSans-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Medium.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Quicksand-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/waiting.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/column-alignment/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/new_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/new_transaction.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/user_transaction.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +59,14 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/images" />
+      <recent name="$PROJECT_DIR$/assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/column-alignment/widget" />
       <recent name="$PROJECT_DIR$/lib/column-alignment/model" />

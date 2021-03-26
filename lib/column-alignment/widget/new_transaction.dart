@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AddTransactionCard extends StatelessWidget {
-  const AddTransactionCard({
-    Key key,
-  }) : super(key: key);
+class NewTransactionCard extends StatelessWidget {
+  final Function callBack;
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
+  NewTransactionCard({Key key, this.callBack}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    String titleInput;
-    String amountInput;
-
     return Card(
       child: Container(
         padding: EdgeInsets.all(10),
@@ -17,21 +17,26 @@ class AddTransactionCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             TextField(
+              controller: titleController,
               decoration: InputDecoration(
                 labelText: 'Title',
               ),
-              onChanged: (val) => titleInput = val,
             ),
             TextField(
+              controller: amountController,
               decoration: InputDecoration(
                 labelText: 'Amount',
               ),
-              onChanged: (val) => amountInput = val,
             ),
             TextButton(
               onPressed: () {
-                print('titleInput : ${titleInput}');
-                print('amountInput : ${amountInput}');
+                print('titleInput : ${titleController.text}');
+                print('amountInput : ${amountController.text}');
+
+                callBack(
+                  titleController.text,
+                  double.parse(amountController.text),
+                );
               },
               child: Text('Add Transaction'),
               style: ButtonStyle(

@@ -51,10 +51,9 @@ class TransactionCard extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   child: Text(
                     '${DateFormat.yMMMMd().format(transaction.date)}',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                        color: Colors.blue),
+                    style: Theme.of(context).textTheme.headline6.copyWith(
+                          fontSize: 12,
+                        ),
                   ),
                 )
               ],

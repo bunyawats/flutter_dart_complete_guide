@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'OpenSans',
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
+                color: Colors.blue,
               ),
             ),
         appBarTheme: AppBarTheme(
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
                   fontFamily: 'OpenSans',
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
         ),
@@ -95,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<Transaction> get _recentTransactions {
-    return _userTransactions.where( (tx) {
+    return _userTransactions.where((tx) {
       return tx.date.isAfter(DateTime.now().subtract(
         Duration(
           days: 7,

@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 class NewTransactionCard extends StatefulWidget {
   final Function callBack;
 
-
   NewTransactionCard({Key key, this.callBack}) : super(key: key);
 
   @override

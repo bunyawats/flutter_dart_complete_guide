@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/column-alignment/widget/chart.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/column-alignment/widget/chart_bar.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/column-alignment/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/chart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +37,9 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="1pLSA0puurg2UZVqqamZSMumitg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" />
     <panes>
@@ -47,6 +53,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />

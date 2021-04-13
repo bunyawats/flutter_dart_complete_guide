@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'widget/chart.dart';
 import 'model/transaction.dart';
 import 'widget/new_transaction.dart';
 import 'widget/transaction_list.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]);
+  runApp(MyApp());
+}
 
 final title = 'Column Alignment';
 
@@ -15,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: title,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        accentColor: Colors.grey,
+        accentColor: Colors.amber,
         errorColor: Colors.red,
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -52,61 +60,63 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 'tq',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'tq',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 'tq',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'New Shoe',
-      amount: 100,
-      date: DateTime.now(),
-    ),
+    //   Transaction(
+    //     id: 'tq',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
+    //   Transaction(
+    //     id: 't2',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
+    //   Transaction(
+    //     id: 't3',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
+    //   Transaction(
+    //     id: 'tq',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
+    //   Transaction(
+    //     id: 't2',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
+    //   Transaction(
+    //     id: 't3',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
+    //   Transaction(
+    //     id: 'tq',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
+    //   Transaction(
+    //     id: 't2',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
+    //   Transaction(
+    //     id: 't3',
+    //     title: 'New Shoe',
+    //     amount: 100,
+    //     date: DateTime.now(),
+    //   ),
   ];
+
+  bool _showChart = false;
 
   void _startAddNewTransaction(BuildContext ctx) {
     showModalBottomSheet(
@@ -164,28 +174,46 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
 
-    final availableHeight = MediaQuery.of(context).size.height -
-        appBar.preferredSize.height -
-        MediaQuery.of(context).padding.top;
+    double _availableHeight(double pctHeight) {
+      return (MediaQuery.of(context).size.height -
+              appBar.preferredSize.height -
+              MediaQuery.of(context).padding.top) *
+          pctHeight;
+    }
 
     return Scaffold(
       appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              height: availableHeight * 0.3,
-              child: Chart(
-                recentTransactions: _recentTransactions,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Short Chart'),
+                Switch(
+                  value: _showChart,
+                  onChanged: (val) {
+                    setState(() {
+                      _showChart = val;
+                    });
+                  },
+                ),
+              ],
             ),
-            Container(
-              height: availableHeight * 0.7,
-              child: TransactionList(
-                transactions: _userTransactions,
-                callBack: _removeTransaction,
-              ),
-            ),
+            _showChart
+                ? Container(
+                    height: _availableHeight(0.9),
+                    child: Chart(
+                      recentTransactions: _recentTransactions,
+                    ),
+                  )
+                : Container(
+                    height: _availableHeight(0.7),
+                    child: TransactionList(
+                      transactions: _userTransactions,
+                      callBack: _removeTransaction,
+                    ),
+                  ),
           ],
         ),
       ),

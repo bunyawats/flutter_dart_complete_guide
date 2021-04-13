@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/column-alignment/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/chart_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/chart_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/new_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/new_transaction.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_list.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

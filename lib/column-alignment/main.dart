@@ -52,24 +52,60 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: 'tq',
-    //   title: 'New Shoe',
-    //   amount: 100,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'New Shoe',
-    //   amount: 100,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't3',
-    //   title: 'New Shoe',
-    //   amount: 100,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: 'tq',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'tq',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'tq',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
   ];
 
   void _startAddNewTransaction(BuildContext ctx) {
@@ -118,25 +154,37 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var appBar = AppBar(
+      title: Text('Personal Expense'),
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: () => _startAddNewTransaction(context),
+        ),
+      ],
+    );
+
+    final availableHeight = MediaQuery.of(context).size.height -
+        appBar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Personal Expense'),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () => _startAddNewTransaction(context),
-          ),
-        ],
-      ),
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Chart(
-              recentTransactions: _recentTransactions,
+            Container(
+              height: availableHeight * 0.3,
+              child: Chart(
+                recentTransactions: _recentTransactions,
+              ),
             ),
-            TransactionList(
-              transactions: _userTransactions,
-              callBack: _removeTransaction,
+            Container(
+              height: availableHeight * 0.7,
+              child: TransactionList(
+                transactions: _userTransactions,
+                callBack: _removeTransaction,
+              ),
             ),
           ],
         ),

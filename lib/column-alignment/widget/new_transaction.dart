@@ -53,66 +53,73 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextField(
-              controller: _titleController,
-              decoration: InputDecoration(
-                labelText: 'Title',
+    return SingleChildScrollView(
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.only(
+            top: 10,
+            left: 10,
+            right: 10,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              TextField(
+                controller: _titleController,
+                decoration: InputDecoration(
+                  labelText: 'Title',
+                ),
               ),
-            ),
-            TextField(
-              controller: _amountController,
-              decoration: InputDecoration(
-                labelText: 'Amount',
+              TextField(
+                controller: _amountController,
+                decoration: InputDecoration(
+                  labelText: 'Amount',
+                ),
+                inputFormatters: [
+                  FilteringTextInputFormatter.allow(RegExp(r'[-+.0-9]')),
+                ],
+                keyboardType: TextInputType.number,
+                onSubmitted: (_) => _submitData(),
               ),
-              inputFormatters: [
-                FilteringTextInputFormatter.allow(RegExp(r'[-+.0-9]')),
-              ],
-              keyboardType: TextInputType.number,
-              onSubmitted: (_) => _submitData(),
-            ),
-            Container(
-              height: 50,
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(_selectedDate != null
-                        ? 'Picked date: ${DateFormat.yMd().format(_selectedDate)}'
-                        : 'No Date Chosen!'),
-                  ),
-                  TextButton(
-                    onPressed: _presentDatePicker,
-                    child: Text('Choose Date',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        )),
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all(
-                        Theme.of(context).primaryColor,
+              Container(
+                height: 50,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(_selectedDate != null
+                          ? 'Picked date: ${DateFormat.yMd().format(_selectedDate)}'
+                          : 'No Date Chosen!'),
+                    ),
+                    TextButton(
+                      onPressed: _presentDatePicker,
+                      child: Text('Choose Date',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          )),
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all(
+                          Theme.of(context).primaryColor,
+                        ),
                       ),
                     ),
+                  ],
+                ),
+              ),
+              ElevatedButton(
+                onPressed: _submitData,
+                child: Text('Add Transaction'),
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(
+                    Theme.of(context).textTheme.button.color,
                   ),
-                ],
-              ),
-            ),
-            ElevatedButton(
-              onPressed: _submitData,
-              child: Text('Add Transaction'),
-              style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all(
-                  Theme.of(context).textTheme.button.color,
-                ),
-                backgroundColor: MaterialStateProperty.all(
-                  Theme.of(context).primaryColor,
+                  backgroundColor: MaterialStateProperty.all(
+                    Theme.of(context).primaryColor,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

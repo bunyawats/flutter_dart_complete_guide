@@ -164,7 +164,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var appBar = AppBar(
+    final _isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
+    final appBar = AppBar(
       title: Text('Personal Expense'),
       actions: <Widget>[
         IconButton(
@@ -174,48 +177,16 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
 
-    double _availableHeight(double pctHeight) {
-      return (MediaQuery.of(context).size.height -
-              appBar.preferredSize.height -
-              MediaQuery.of(context).padding.top) *
-          pctHeight;
-    }
+    final _availableHeight = MediaQuery.of(context).size.height -
+        appBar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
 
     return Scaffold(
       appBar: appBar,
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('Short Chart'),
-                Switch(
-                  value: _showChart,
-                  onChanged: (val) {
-                    setState(() {
-                      _showChart = val;
-                    });
-                  },
-                ),
-              ],
-            ),
-            _showChart
-                ? Container(
-                    height: _availableHeight(0.9),
-                    child: Chart(
-                      recentTransactions: _recentTransactions,
-                    ),
-                  )
-                : Container(
-                    height: _availableHeight(0.7),
-                    child: TransactionList(
-                      transactions: _userTransactions,
-                      callBack: _removeTransaction,
-                    ),
-                  ),
-          ],
-        ),
+        child: _isLandscape
+            ? buildLandscape(_availableHeight)
+            : buildPortrait(_availableHeight),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
@@ -224,6 +195,61 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         onPressed: () => _startAddNewTransaction(context),
       ),
+    );
+  }
+
+  Column buildLandscape(double availableHeight) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Short Chart'),
+            Switch(
+              value: _showChart,
+              onChanged: (val) {
+                setState(() {
+                  _showChart = val;
+                });
+              },
+            ),
+          ],
+        ),
+        _showChart
+            ? Container(
+                height: availableHeight * 0.9,
+                child: Chart(
+                  recentTransactions: _recentTransactions,
+                ),
+              )
+            : Container(
+                height: availableHeight * 0.9,
+                child: TransactionList(
+                  transactions: _userTransactions,
+                  callBack: _removeTransaction,
+                ),
+              ),
+      ],
+    );
+  }
+
+  Column buildPortrait(double availableHeight) {
+    return Column(
+      children: [
+        Container(
+          height: availableHeight * 0.3,
+          child: Chart(
+            recentTransactions: _recentTransactions,
+          ),
+        ),
+        Container(
+          height: availableHeight * 0.7,
+          child: TransactionList(
+            transactions: _userTransactions,
+            callBack: _removeTransaction,
+          ),
+        ),
+      ],
     );
   }
 }

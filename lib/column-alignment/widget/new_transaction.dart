@@ -48,9 +48,7 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
       lastDate: DateTime.now(),
     );
     print(_selectedDate.toString());
-    setState(() {
-      _selectedDate = _selectedDate;
-    });
+    setState(() => _selectedDate = _selectedDate);
   }
 
   @override

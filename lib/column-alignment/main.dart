@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       title: title,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        accentColor: Colors.amber,
+        accentColor: Colors.grey,
+        errorColor: Colors.red,
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
@@ -98,19 +99,21 @@ class _MyHomePageState extends State<MyHomePage> {
       date: txDate,
     );
 
-    setState(() {
-      _userTransactions.add(newTx);
-    });
+    setState(() => _userTransactions.add(newTx));
+  }
+
+  void _removeTransaction(Transaction tx) {
+    setState(() => _userTransactions.remove(tx));
   }
 
   List<Transaction> get _recentTransactions {
-    return _userTransactions.where((tx) {
-      return tx.date.isAfter(DateTime.now().subtract(
-        Duration(
-          days: 7,
-        ),
-      ));
-    }).toList();
+    return _userTransactions
+        .where((tx) => tx.date.isAfter(DateTime.now().subtract(
+              Duration(
+                days: 7,
+              ),
+            )))
+        .toList();
   }
 
   @override
@@ -133,6 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             TransactionList(
               transactions: _userTransactions,
+              callBack: _removeTransaction,
             ),
           ],
         ),

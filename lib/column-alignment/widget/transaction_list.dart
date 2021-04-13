@@ -5,8 +5,13 @@ import '../model/transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;
+  final Function callBack;
 
-  const TransactionList({Key key, this.transactions}) : super(key: key);
+  const TransactionList({
+    Key key,
+    this.transactions,
+    this.callBack,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +38,8 @@ class TransactionList extends StatelessWidget {
             )
           : ListView.builder(
               itemBuilder: (ctx, index) {
+                var currentTx = transactions[index];
+
                 return Card(
                   elevation: 5,
                   margin: EdgeInsets.symmetric(
@@ -45,16 +52,21 @@ class TransactionList extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(6),
                         child: FittedBox(
-                          child: Text('\$${transactions[index].amount}'),
+                          child: Text('\$${currentTx.amount}'),
                         ),
                       ),
                     ),
                     title: Text(
-                      transactions[index].title,
+                      currentTx.title,
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     subtitle: Text(
-                      DateFormat.yMMMMd().format(transactions[index].date),
+                      DateFormat.yMMMMd().format(currentTx.date),
+                    ),
+                    trailing: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () => callBack(currentTx),
+                      color: Theme.of(context).errorColor,
                     ),
                   ),
                 );

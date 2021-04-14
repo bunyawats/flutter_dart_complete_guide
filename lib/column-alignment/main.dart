@@ -62,62 +62,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [
-    //   Transaction(
-    //     id: 'tq',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-    //   Transaction(
-    //     id: 't2',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-    //   Transaction(
-    //     id: 't3',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-    //   Transaction(
-    //     id: 'tq',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-    //   Transaction(
-    //     id: 't2',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-    //   Transaction(
-    //     id: 't3',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-    //   Transaction(
-    //     id: 'tq',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-    //   Transaction(
-    //     id: 't2',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-    //   Transaction(
-    //     id: 't3',
-    //     title: 'New Shoe',
-    //     amount: 100,
-    //     date: DateTime.now(),
-    //   ),
-  ];
+  final List<Transaction> _userTransactions = Transaction.sampleTransactions;
 
   bool _showChart = false;
 

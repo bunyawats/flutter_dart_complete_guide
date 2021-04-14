@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/column-alignment/widget/adaptive_appbar.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/column-alignment/widget/adaptive_button.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/column-alignment/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/model/transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/model/transaction.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/new_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/new_transaction.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

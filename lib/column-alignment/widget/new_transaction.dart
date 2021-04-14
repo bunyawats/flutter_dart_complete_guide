@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
+import 'adaptive_button.dart';
+
 class NewTransactionCard extends StatefulWidget {
   final Function callBack;
 
@@ -97,27 +99,10 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
                           ? 'Picked date: ${DateFormat.yMd().format(_selectedDate)}'
                           : 'No Date Chosen!'),
                     ),
-                    Platform.isIOS
-                        ? CupertinoButton(
-                          //  color: Colors.blue,
-                            child: Text('Choose Date',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            onPressed: _presentDatePicker,
-                          )
-                        : TextButton(
-                            onPressed: _presentDatePicker,
-                            child: Text('Choose Date',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all(
-                                theme.primaryColor,
-                              ),
-                            ),
-                          ),
+                    AdaptiveButton(
+                      title: 'Choose Date',
+                      presentDatePicker: _presentDatePicker,
+                    )
                   ],
                 ),
               ),

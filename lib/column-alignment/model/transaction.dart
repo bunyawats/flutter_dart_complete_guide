@@ -12,4 +12,61 @@ class Transaction {
     @required this.amount,
     @required this.date,
   });
+
+  static final List<Transaction> sampleTransactions = [
+    Transaction(
+      id: 'tq',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'tq',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 'tq',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'New Shoe',
+      amount: 100,
+      date: DateTime.now(),
+    ),
+  ];
 }

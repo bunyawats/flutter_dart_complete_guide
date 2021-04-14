@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/chart_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/chart_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/new_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/new_transaction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_card.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/column-alignment/widget/transaction_list.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,5 +121,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/column-alignment/widget/chart_bar.dart</url>
+          <line>21</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

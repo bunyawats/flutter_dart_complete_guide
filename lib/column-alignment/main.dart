@@ -1,5 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'widget/chart.dart';
 import 'model/transaction.dart';
 import 'widget/new_transaction.dart';
@@ -164,8 +166,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final _isLandscape =
-        MediaQuery.of(context).orientation == Orientation.landscape;
+    final mediaQuery = MediaQuery.of(context);
+
+    final _isLandscape = mediaQuery.orientation == Orientation.landscape;
 
     final appBar = AppBar(
       title: Text('Personal Expense'),
@@ -177,9 +180,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     );
 
-    final _availableHeight = MediaQuery.of(context).size.height -
+    final _availableHeight = mediaQuery.size.height -
         appBar.preferredSize.height -
-        MediaQuery.of(context).padding.top;
+        mediaQuery.padding.top;
 
     return Scaffold(
       appBar: appBar,
@@ -189,12 +192,14 @@ class _MyHomePageState extends State<MyHomePage> {
             : buildPortrait(_availableHeight),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.add,
-        ),
-        onPressed: () => _startAddNewTransaction(context),
-      ),
+      floatingActionButton: Platform.isAndroid
+          ? FloatingActionButton(
+              child: Icon(
+                Icons.add,
+              ),
+              onPressed: () => _startAddNewTransaction(context),
+            )
+          : null,
     );
   }
 
@@ -205,7 +210,8 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('Short Chart'),
-            Switch(
+            Switch.adaptive(
+              activeColor: Theme.of(context).accentColor,
               value: _showChart,
               onChanged: (val) {
                 setState(() {

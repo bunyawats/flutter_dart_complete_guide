@@ -53,6 +53,9 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final theme = Theme.of(context);
+
     return SingleChildScrollView(
       child: Card(
         child: Container(
@@ -60,7 +63,7 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
             top: 10,
             left: 10,
             right: 10,
-            bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+            bottom: mediaQuery.viewInsets.bottom + 10,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -99,7 +102,7 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
                           )),
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all(
-                          Theme.of(context).primaryColor,
+                          theme.primaryColor,
                         ),
                       ),
                     ),
@@ -111,10 +114,10 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
                 child: Text('Add Transaction'),
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(
-                    Theme.of(context).textTheme.button.color,
+                    theme.textTheme.button.color,
                   ),
                   backgroundColor: MaterialStateProperty.all(
-                    Theme.of(context).primaryColor,
+                    theme.primaryColor,
                   ),
                 ),
               ),

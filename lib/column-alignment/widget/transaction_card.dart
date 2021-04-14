@@ -12,6 +12,8 @@ class TransactionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Card(
       child: Container(
         child: Row(
@@ -24,7 +26,7 @@ class TransactionCard extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                   border: Border.all(
-                color: Theme.of(context).primaryColor,
+                color: theme.primaryColor,
                 width: 2,
               )),
               child: Text(
@@ -32,7 +34,7 @@ class TransactionCard extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Theme.of(context).primaryColor,
+                  color: theme.primaryColor,
                 ),
               ),
             ),
@@ -44,16 +46,16 @@ class TransactionCard extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   child: Text(
                     transaction.title,
-                    style: Theme.of(context).textTheme.headline6,
+                    style: theme.textTheme.headline6,
                   ),
                 ),
                 Container(
                   padding: EdgeInsets.all(5),
                   child: Text(
                     '${DateFormat.yMMMMd().format(transaction.date)}',
-                    style: Theme.of(context).textTheme.headline6.copyWith(
-                          fontSize: 12,
-                        ),
+                    style: theme.textTheme.headline6.copyWith(
+                      fontSize: 12,
+                    ),
                   ),
                 )
               ],

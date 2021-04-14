@@ -15,13 +15,16 @@ class TransactionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final theme = Theme.of(context);
+
     return transactions.isEmpty
         ? LayoutBuilder(builder: (ctx, constraint) {
             return Column(
               children: <Widget>[
                 Text(
                   'No transactions added yet!',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: theme.textTheme.headline6,
                 ),
                 SizedBox(
                   height: 10,
@@ -58,25 +61,25 @@ class TransactionList extends StatelessWidget {
                   ),
                   title: Text(
                     currentTx.title,
-                    style: Theme.of(context).textTheme.headline6,
+                    style: theme.textTheme.headline6,
                   ),
                   subtitle: Text(
                     DateFormat.yMMMMd().format(currentTx.date),
                   ),
-                  trailing: MediaQuery.of(context).size.width > 460
+                  trailing: mediaQuery.size.width > 460
                       ? TextButton.icon(
                           onPressed: () => callBack(currentTx),
                           icon: Icon(Icons.delete),
                           label: Text('Delete'),
                           style: TextButton.styleFrom(
-                              primary: Theme.of(context).errorColor,
+                              primary: theme.errorColor,
                               //backgroundColor: Colors.amber,
                               textStyle: TextStyle(
                                   fontSize: 24, fontStyle: FontStyle.italic)))
                       : IconButton(
                           icon: Icon(Icons.delete),
                           onPressed: () => callBack(currentTx),
-                          color: Theme.of(context).errorColor,
+                          color: theme.errorColor,
                         ),
                 ),
               );

@@ -117,28 +117,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final _isLandscape = mediaQuery.orientation == Orientation.landscape;
 
-    final PreferredSizeWidget appBar = Platform.isIOS
-        ? CupertinoNavigationBar(
-            middle: Text('Personal Expense'),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                GestureDetector(
-                  child: Icon(CupertinoIcons.add),
-                  onTap: () => _startAddNewTransaction(context),
-                )
-              ],
-            ),
-          )
-        : AppBar(
-            title: Text('Personal Expense'),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.add),
-                onPressed: () => _startAddNewTransaction(context),
-              ),
-            ],
-          );
+    final PreferredSizeWidget appBar = buildAdaptiveAppBar(
+      context,
+      'Personal Expense',
+    );
 
     final _availableHeight = mediaQuery.size.height -
         appBar.preferredSize.height -
@@ -151,6 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
             : buildPortrait(_availableHeight),
       ),
     );
+
     return Platform.isIOS
         ? CupertinoPageScaffold(
             child: pageBody,
@@ -169,6 +152,31 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () => _startAddNewTransaction(context),
                   )
                 : null,
+          );
+  }
+
+  Widget buildAdaptiveAppBar(BuildContext context, String title) {
+    return Platform.isIOS
+        ? CupertinoNavigationBar(
+            middle: Text(title),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                GestureDetector(
+                  child: Icon(CupertinoIcons.add),
+                  onTap: () => _startAddNewTransaction(context),
+                )
+              ],
+            ),
+          )
+        : AppBar(
+            title: Text(title),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () => _startAddNewTransaction(context),
+              ),
+            ],
           );
   }
 

@@ -24,34 +24,38 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: title,
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        accentColor: Colors.amber,
-        errorColor: Colors.red,
-        fontFamily: 'Quicksand',
+      theme: _buildThemeData(),
+      home: MyHomePage(),
+    );
+  }
+
+  ThemeData _buildThemeData() {
+    return ThemeData(
+      primarySwatch: Colors.green,
+      accentColor: Colors.amber,
+      errorColor: Colors.red,
+      fontFamily: 'Quicksand',
+      textTheme: ThemeData.light().textTheme.copyWith(
+            headline6: TextStyle(
+              fontFamily: 'OpenSans',
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.blue,
+            ),
+            button: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+      appBarTheme: AppBarTheme(
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
                 fontFamily: 'OpenSans',
-                fontSize: 18,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
-              button: TextStyle(
                 color: Colors.white,
               ),
             ),
-        appBarTheme: AppBarTheme(
-          textTheme: ThemeData.light().textTheme.copyWith(
-                headline6: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-        ),
       ),
-      home: MyHomePage(),
     );
   }
 }
@@ -117,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final _isLandscape = mediaQuery.orientation == Orientation.landscape;
 
-    final PreferredSizeWidget appBar = buildAdaptiveAppBar(
+    final PreferredSizeWidget appBar = _buildAdaptiveAppBar(
       context,
       'Personal Expense',
     );
@@ -129,8 +133,8 @@ class _MyHomePageState extends State<MyHomePage> {
     var pageBody = SafeArea(
       child: SingleChildScrollView(
         child: _isLandscape
-            ? buildLandscape(_availableHeight, theme)
-            : buildPortrait(_availableHeight),
+            ? _buildLandscape(_availableHeight, theme)
+            : _buildPortrait(_availableHeight),
       ),
     );
 
@@ -155,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
-  Widget buildAdaptiveAppBar(BuildContext context, String title) {
+  Widget _buildAdaptiveAppBar(BuildContext context, String title) {
     return Platform.isIOS
         ? CupertinoNavigationBar(
             middle: Text(title),
@@ -180,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
           );
   }
 
-  Column buildLandscape(double availableHeight, ThemeData theme) {
+  Column _buildLandscape(double availableHeight, ThemeData theme) {
     return Column(
       children: [
         Row(
@@ -219,7 +223,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Column buildPortrait(double availableHeight) {
+  Column _buildPortrait(double availableHeight) {
     return Column(
       children: [
         Container(

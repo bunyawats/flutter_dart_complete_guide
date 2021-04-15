@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/transaction_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/main_dart.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/model/transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/model/transaction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/widget/transaction_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/transaction_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/widget/transaction_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/transaction_list.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

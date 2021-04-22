@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,7 +29,6 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
 
     print('titleInput : $enterTitle');
     print('amountInput : $enterAmount');
-    print('dateInput : ${_selectedDate}');
 
     if ((enterTitle.isEmpty || enterAmount <= 0) || (_selectedDate == null)) {
       return;

@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_dart_complete_guide/meals_app/models/meal.dart';
+import '../screens/meal_detail_screen.dart';
+import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
   final String title;
@@ -51,12 +52,19 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  void _selectMeal() {}
+  void _selectMeal(BuildContext ctx) {
+    Navigator.of(ctx).pushNamed(
+      MeralDetailScreen.routeName,
+      arguments: {
+        'title': title,
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _selectMeal,
+      onTap: () => _selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),

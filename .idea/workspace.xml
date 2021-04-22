@@ -5,16 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/meals_app/dummy_data.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/meals_app/meals_app_main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/meals_app/model/category.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/meals_app/widget/categories_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/meals_app/widget/category_item.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Raleway-Black.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Raleway-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/Raleway-Regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/RobotoCondensed-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/RobotoCondensed-Italic.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/RobotoCondensed-Light.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/RobotoCondensed-Regular.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/personal_expense_app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/widget/new_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/new_transaction.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/widget/transaction_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/transaction_list.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/meals_app/meals_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/meals_app_main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/meals_app/widget/categories_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/widget/categories_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/meals_app/widget/category_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/widget/category_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +59,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -71,6 +75,7 @@
       <recent name="$PROJECT_DIR$/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$/lib/meals_app" />
       <recent name="$PROJECT_DIR$/lib/column-alignment/widget" />
       <recent name="$PROJECT_DIR$/lib/column-alignment/model" />
@@ -121,6 +126,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

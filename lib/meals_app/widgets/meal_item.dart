@@ -5,6 +5,7 @@ import '../screens/meal_detail_screen.dart';
 import '../models/meal.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -13,6 +14,7 @@ class MealItem extends StatelessWidget {
 
   const MealItem({
     Key key,
+    @required this.id,
     @required this.title,
     @required this.imageUrl,
     @required this.duration,
@@ -57,6 +59,7 @@ class MealItem extends StatelessWidget {
       MeralDetailScreen.routeName,
       arguments: {
         'title': title,
+        'id': id,
       },
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screens/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
   @override
@@ -26,19 +27,23 @@ class MainDrawer extends StatelessWidget {
           _uildListTile(
             'Meals',
             Icons.restaurant,
-            () {},
+            () {
+              Navigator.of(context).pushNamed('/');
+            },
           ),
           _uildListTile(
-            'Setting',
+            'Filters',
             Icons.star,
-            () {},
+            () {
+              Navigator.of(context).pushNamed(FilterScreen.routeName);
+            },
           ),
         ],
       ),
     );
   }
 
-  ListTile _uildListTile(String text, IconData icon, Function callBack) {
+  ListTile _uildListTile(String text, IconData icon, Function onTapHandler) {
     return ListTile(
       leading: Icon(
         icon,
@@ -52,7 +57,7 @@ class MainDrawer extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
       ),
-      onTap: callBack,
+      onTap: onTapHandler,
     );
   }
 }

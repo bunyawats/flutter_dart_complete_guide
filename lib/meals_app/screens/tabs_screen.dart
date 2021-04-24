@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/main_drawer.dart';
 import 'categories_screen.dart';
 import 'favorites_screen.dart';
 
@@ -37,6 +38,7 @@ class _TabScreenState extends State<TabScreen> {
       appBar: AppBar(
         title: Text(_selectedPageMap['title']),
       ),
+      drawer: MainDrawer(),
       body: _selectedPageMap['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,

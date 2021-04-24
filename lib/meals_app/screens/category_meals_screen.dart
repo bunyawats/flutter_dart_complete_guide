@@ -23,6 +23,7 @@ class CategoryMealsScreen extends StatefulWidget {
 class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   List<Meal> _displayMeals;
   String _categoryTitle;
+  var _loadedInitData = false;
 
   void _removeItem(String mealId) {
     setState(() {
@@ -41,14 +42,17 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 
   @override
   void didChangeDependencies() {
-    final routeArgs =
-        ModalRoute.of(context).settings.arguments as Map<String, String>;
+    if (!_loadedInitData) {
+      final routeArgs =
+          ModalRoute.of(context).settings.arguments as Map<String, String>;
 
-    _categoryTitle = routeArgs['title'];
-    final categoryId = routeArgs['id'];
-    _displayMeals = DUMMY_MEALS.where((meal) {
-      return meal.categories.contains(categoryId);
-    }).toList();
+      _categoryTitle = routeArgs['title'];
+      final categoryId = routeArgs['id'];
+      _displayMeals = DUMMY_MEALS.where((meal) {
+        return meal.categories.contains(categoryId);
+      }).toList();
+    }
+
     super.didChangeDependencies();
   }
 

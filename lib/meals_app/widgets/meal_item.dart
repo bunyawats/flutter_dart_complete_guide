@@ -1,8 +1,8 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
-import '../screens/meal_detail_screen.dart';
+
 import '../models/meal.dart';
+import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
   final String id;
@@ -11,6 +11,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   const MealItem({
     Key key,
@@ -20,6 +21,7 @@ class MealItem extends StatelessWidget {
     @required this.duration,
     @required this.complexity,
     @required this.affordability,
+    @required this.removeItem,
   }) : super(key: key);
 
   String get complexityText {
@@ -54,14 +56,13 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  void _selectMeal(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed(
+  void _selectMeal(BuildContext ctx) async {
+    var mealId = await Navigator.of(ctx).pushNamed(
       MeralDetailScreen.routeName,
-      arguments: {
-        'title': title,
-        'id': id,
-      },
+      arguments: id,
     );
+    print('mealId : $mealId');
+    removeItem(mealId);
   }
 
   @override

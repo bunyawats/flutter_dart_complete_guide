@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dart_complete_guide/meals_app/widgets/meal_item.dart';
-import '../dummy_data.dart';
 
-class CategoryMealsScreen extends StatelessWidget {
+import '../dummy_data.dart';
+import '../models/meal.dart';
+import '../widgets/meal_item.dart';
+
+class CategoryMealsScreen extends StatefulWidget {
   // final String categoryId;
   // final String categoryTitle;
   //
@@ -15,24 +17,51 @@ class CategoryMealsScreen extends StatelessWidget {
   static const String routeName = '/category-meals';
 
   @override
-  Widget build(BuildContext context) {
+  _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
+}
+
+class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
+  List<Meal> _displayMeals;
+  String _categoryTitle;
+
+  void _removeItem(String mealId) {
+    setState(() {
+      if (mealId != null) {
+        _displayMeals.removeWhere(
+          (meal) => meal.id == mealId,
+        );
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
     final routeArgs =
         ModalRoute.of(context).settings.arguments as Map<String, String>;
 
-    final categoryTitle = routeArgs['title'];
+    _categoryTitle = routeArgs['title'];
     final categoryId = routeArgs['id'];
-    final categoryMeals = DUMMY_MEALS.where((meal) {
+    _displayMeals = DUMMY_MEALS.where((meal) {
       return meal.categories.contains(categoryId);
     }).toList();
+    super.didChangeDependencies();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(categoryTitle),
+        title: Text(_categoryTitle),
       ),
       body: Center(
         child: ListView.builder(
           itemBuilder: (ctx, index) {
-            final meal = categoryMeals[index];
+            final meal = _displayMeals[index];
             return MealItem(
               id: meal.id,
               title: meal.title,
@@ -40,9 +69,10 @@ class CategoryMealsScreen extends StatelessWidget {
               duration: meal.duration,
               complexity: meal.complexity,
               affordability: meal.affordability,
+              removeItem: _removeItem,
             );
           },
-          itemCount: categoryMeals.length,
+          itemCount: _displayMeals.length,
         ),
       ),
     );

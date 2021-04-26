@@ -5,6 +5,12 @@ import '../dummy_data.dart';
 class MeralDetailScreen extends StatelessWidget {
   static const String routeName = '/meal_detail';
 
+  final Function toggleFavorite;
+  final Function isMealFavorite;
+
+  const MeralDetailScreen({Key key, this.toggleFavorite, this.isMealFavorite})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final mealId = ModalRoute.of(context).settings.arguments;
@@ -67,10 +73,11 @@ class MeralDetailScreen extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
             child: Icon(
-              Icons.delete,
+              isMealFavorite(mealId) ? Icons.star : Icons.star_border,
             ),
             onPressed: () {
-              Navigator.of(context).pop(mealId);
+              toggleFavorite(mealId);
+              //Navigator.of(context).pop(mealId);
             }));
   }
 

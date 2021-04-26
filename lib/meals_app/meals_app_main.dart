@@ -76,6 +76,7 @@ class _MyAppState extends State<MyApp> {
             CategoryMealsScreen(_availableMeals),
         MeralDetailScreen.routeName: (ctx) => MeralDetailScreen(),
         FilterScreen.routeName: (ctx) => FilterScreen(
+              filters: _filters,
               saveFilter: _setFilters,
             ),
       },

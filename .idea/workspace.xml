@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/shop_app/providers/products_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/shop_app/widgets/product_grid.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/models/product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/models/product.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/products_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/products_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/product_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_detail_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

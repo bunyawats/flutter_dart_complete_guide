@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/models/product.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/meals_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/meals_app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/screens/category_meals_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/screens/category_meals_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/screens/favorites_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/screens/favorites_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/screens/meal_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/screens/meal_detail_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/screens/tabs_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/screens/tabs_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/widgets/meal_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/widgets/meal_item.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +75,7 @@
       <recent name="$PROJECT_DIR$/lib/column-alignment/model" />
     </key>
   </component>
-  <component name="RunManager" selected="Flutter.meals_app_main.dart">
+  <component name="RunManager" selected="Flutter.shop_app_main.dart">
     <configuration name="meals_app_main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
       <option name="filePath" value="$PROJECT_DIR$/lib/meals_app/meals_app_main.dart" />
       <method v="2" />
@@ -86,8 +84,13 @@
       <option name="filePath" value="$PROJECT_DIR$/lib/personal_expense_app/personal_expense_app_main.dart" />
       <method v="2" />
     </configuration>
+    <configuration name="shop_app_main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" temporary="true" nameIsGenerated="true">
+      <option name="filePath" value="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Flutter.shop_app_main.dart" />
         <item itemvalue="Flutter.meals_app_main.dart" />
         <item itemvalue="Flutter.personal_expense_app_main.dart" />
       </list>

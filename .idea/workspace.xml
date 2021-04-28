@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/shop_app/providers/cart_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/widgets/badge.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/cart_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/cart_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +70,11 @@
       <recent name="$PROJECT_DIR$/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/shop_app/widgets" />
       <recent name="$PROJECT_DIR$/lib/shop_app/providers" />
       <recent name="$PROJECT_DIR$/assets/fonts" />
       <recent name="$PROJECT_DIR$/lib/meals_app/screen" />
       <recent name="$PROJECT_DIR$/lib/meals_app" />
-      <recent name="$PROJECT_DIR$/lib/column-alignment/widget" />
     </key>
   </component>
   <component name="RunManager" selected="Flutter.shop_app_main.dart">
@@ -134,6 +137,11 @@
           <url>file://$PROJECT_DIR$/lib/personal_expense_app/widget/chart_bar.dart</url>
           <line>21</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/shop_app/providers/cart_provider.dart</url>
+          <line>47</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

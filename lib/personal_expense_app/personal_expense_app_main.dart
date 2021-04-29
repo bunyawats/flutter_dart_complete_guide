@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
     DateTime txDate,
   }) {
     final newTx = Transaction(
-      id: DateTime.now().toString(),
+      id: '${DateTime.now()}',
       title: txTitle,
       amount: txAmount,
       date: txDate,

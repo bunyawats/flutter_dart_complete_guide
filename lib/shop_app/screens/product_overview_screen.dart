@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/cart_provider.dart';
+import '../screens/cart_screen.dart';
 import '../widgets/badge.dart';
 import '../widgets/product_grid.dart';
-import '../screens/cart_screen.dart';
 
 enum FilterOptions {
   Favorites,

@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/widget/new_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/new_transaction.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/cart_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/cart_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/cart_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/cart_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/product_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_detail_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/cart_line_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/cart_line_item.dart" afterDir="false" />

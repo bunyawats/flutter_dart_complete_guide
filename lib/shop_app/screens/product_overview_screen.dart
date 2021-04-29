@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/cart_provider.dart';
 import '../screens/cart_screen.dart';
+import '../widgets/app_drawer.dart';
 import '../widgets/badge.dart';
 import '../widgets/product_grid.dart';
 
@@ -12,6 +13,8 @@ enum FilterOptions {
 }
 
 class ProductOverviewScreen extends StatefulWidget {
+  static const routeName = '/product_overview';
+
   @override
   _ProductOverviewScreenState createState() => _ProductOverviewScreenState();
 }
@@ -28,7 +31,6 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
           PopupMenuButton(
             onSelected: (selectedValue) {
               print(selectedValue);
-
               setState(() {
                 _showFavoritesOnly = (selectedValue == FilterOptions.Favorites);
               });
@@ -61,6 +63,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
           ),
         ],
       ),
+      drawer: AppDrawer(),
       body: ProductsGrid(
         showFavoritesOnly: _showFavoritesOnly,
       ),

@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/shop_app/providers/order_provider.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/screens/order_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/widgets/app_drawer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/widgets/order_line_item.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/personal_expense_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/personal_expense_app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/widget/new_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/new_transaction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/meals_app/widgets/main_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/widgets/main_drawer.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/cart_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/cart_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/cart_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/cart_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/product_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_detail_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/cart_line_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/cart_line_item.dart" afterDir="false" />
@@ -97,8 +96,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Flutter.shop_app_main.dart" />
-        <item itemvalue="Flutter.meals_app_main.dart" />
         <item itemvalue="Flutter.personal_expense_app_main.dart" />
+        <item itemvalue="Flutter.meals_app_main.dart" />
       </list>
     </recent_temporary>
   </component>

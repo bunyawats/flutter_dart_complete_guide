@@ -21,7 +21,6 @@ class CartLineItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Dismissible(
       key: ValueKey(id),
       background: Container(
@@ -40,7 +39,6 @@ class CartLineItem extends StatelessWidget {
       ),
       direction: DismissDirection.endToStart,
       onDismissed: (direction) {
-
         final cart = Provider.of<Cart>(context, listen: false);
         cart.removeItem(productId);
       },

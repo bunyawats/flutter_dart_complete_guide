@@ -74,8 +74,7 @@ class Cart with ChangeNotifier {
     notifyListeners();
   }
 
-
-  void clear(){
+  void clear() {
     _items = {};
     notifyListeners();
 

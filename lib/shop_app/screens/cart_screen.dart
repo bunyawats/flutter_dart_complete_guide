@@ -9,7 +9,9 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cart = Provider.of<Cart>(context);
+    final cart = Provider.of<Cart>(
+      context,
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -62,10 +64,13 @@ class CartScreen extends StatelessWidget {
                 print('cart index: $index}');
 
                 final CartItem c = cart.items.values.toList()[index];
+                final String pid = cart.items.keys.toList()[index];
+
                 print('cart : $c}');
 
                 return CartLineItem(
                   id: c.id,
+                  productId: pid,
                   title: c.title,
                   price: c.price,
                   quantity: c.quantity,

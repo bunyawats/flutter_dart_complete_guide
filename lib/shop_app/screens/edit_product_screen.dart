@@ -16,7 +16,24 @@ class _EditProductScreenState extends State<EditProductScreen> {
         title: Text('Edit Product'),
       ),
       body: Center(
-        child: Text('Edit Product'),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            child: SingleChildScrollView(
+
+              child: Column(
+                children: <Widget>[
+                  TextFormField(
+                    decoration: InputDecoration(
+                      labelText: 'Title',
+                    ),
+                    textInputAction: TextInputAction.next,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

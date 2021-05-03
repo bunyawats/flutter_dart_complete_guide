@@ -218,7 +218,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                           onEditingComplete: () {
                             setState(() {});
                           },
-                          onFieldSubmitted: (_) => _saveForm,
+                          onFieldSubmitted: (_) => _saveForm(),
                           onSaved: (value) {
                             _editProduct.imageUrl = value;
                           },

@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/product_provider.dart';
 import '../providers/product_list_provider.dart';
+import '../providers/product_provider.dart';
 
 class EditProductScreen extends StatefulWidget {
   static const routeName = '/edit_product';
@@ -20,11 +20,31 @@ class _EditProductScreenState extends State<EditProductScreen> {
   final _form = GlobalKey<FormState>();
 
   var _editProduct = Product();
+  var _isInit = true;
 
   @override
   void initState() {
     _imageFocusNode.addListener(_updateImageUrl);
     super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      final productId = ModalRoute.of(context).settings.arguments as String;
+      if (productId != null) {
+        final _productData = Provider.of<ProductList>(
+          context,
+          listen: false,
+        );
+        _editProduct = _productData.findById(productId);
+
+        _imageUrlController.text = _editProduct.imageUrl;
+      }
+    }
+    _isInit = false;
+
+    super.didChangeDependencies();
   }
 
   @override
@@ -52,6 +72,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
 
     _form.currentState.save();
 
+    print(_editProduct.id);
     print(_editProduct.title);
     print(_editProduct.description);
     print('${_editProduct.price}');
@@ -61,7 +82,15 @@ class _EditProductScreenState extends State<EditProductScreen> {
       context,
       listen: false,
     );
-    _productData.addProduct(_editProduct);
+
+    if (_editProduct.id != null) {
+      _productData.updateProduct(
+        _editProduct.id,
+        _editProduct,
+      );
+    } else {
+      _productData.addProduct(_editProduct);
+    }
 
     Navigator.of(context).pop();
   }
@@ -87,6 +116,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
               child: Column(
                 children: <Widget>[
                   TextFormField(
+                    initialValue: _editProduct.title,
                     decoration: InputDecoration(
                       labelText: 'Title',
                     ),
@@ -105,6 +135,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     },
                   ),
                   TextFormField(
+                    initialValue: _editProduct.price.toString(),
                     decoration: InputDecoration(
                       labelText: 'Price',
                     ),
@@ -132,6 +163,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     },
                   ),
                   TextFormField(
+                    initialValue: _editProduct.description,
                     decoration: InputDecoration(
                       labelText: 'Description',
                     ),

@@ -86,7 +86,10 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       _editProduct.title = value;
                     },
                     validator: (value) {
-                      return value.isEmpty ? 'Please provide a value' : null;
+                      if (value.isEmpty) {
+                        return 'Please provide a title.';
+                      }
+                      return null;
                     },
                   ),
                   TextFormField(
@@ -104,7 +107,16 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       _editProduct.price = double.parse(value);
                     },
                     validator: (value) {
-                      return value.isEmpty ? 'Please provide a value' : null;
+                      if (value.isEmpty) {
+                        return 'Please provide a price.';
+                      }
+                      if (double.tryParse(value) == null) {
+                        return 'Please enter a valid number.';
+                      }
+                      if (double.parse(value) <= 0) {
+                        return 'P;ease a number greater than zero.';
+                      }
+                      return null;
                     },
                   ),
                   TextFormField(
@@ -119,7 +131,13 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       _editProduct.description = value;
                     },
                     validator: (value) {
-                      return value.isEmpty ? 'Please provide a value' : null;
+                      if (value.isEmpty) {
+                        return 'Please provide a description';
+                      }
+                      if (value.length < 10) {
+                        return 'Should be at lease 10 characters long. ';
+                      }
+                      return null;
                     },
                   ),
                   Row(
@@ -161,9 +179,20 @@ class _EditProductScreenState extends State<EditProductScreen> {
                             _editProduct.imageUrl = value;
                           },
                           validator: (value) {
-                            return value.isEmpty
-                                ? 'Please provide a value'
-                                : null;
+                            if (value.isEmpty) {
+                              setState(() {});
+                              return 'Please provide a image URL';
+                            }
+
+                            const urlPattern =
+                                r"(https?|ftp)://([-A-Z0-9.]+)(/[-A-Z0-9+&@#/%=~_|!:,.;]*)?(\?[A-Z0-9+&@#/%=~_|!:‌​,.;]*)?";
+                            final result =
+                                new RegExp(urlPattern, caseSensitive: false)
+                                    .firstMatch(value);
+                            if (result == null) {
+                              return 'Please enter valid URL';
+                            }
+                            return null;
                           },
                           focusNode: _imageFocusNode,
                         ),

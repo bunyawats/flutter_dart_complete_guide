@@ -43,7 +43,10 @@ class _EditProductScreenState extends State<EditProductScreen> {
   }
 
   void _saveForm() {
-    _form.currentState.save();
+    final _isValid = _form.currentState.validate();
+    if (!_isValid) {
+      return;
+    }
 
     print(_editProduct.title);
     print(_editProduct.description);
@@ -82,6 +85,9 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     onSaved: (value) {
                       _editProduct.title = value;
                     },
+                    validator: (value) {
+                      return value.isEmpty ? 'Please provide a value' : null;
+                    },
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -97,6 +103,9 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     onSaved: (value) {
                       _editProduct.price = double.parse(value);
                     },
+                    validator: (value) {
+                      return value.isEmpty ? 'Please provide a value' : null;
+                    },
                   ),
                   TextFormField(
                     decoration: InputDecoration(
@@ -108,6 +117,9 @@ class _EditProductScreenState extends State<EditProductScreen> {
                     focusNode: _descriptionFocusNode,
                     onSaved: (value) {
                       _editProduct.description = value;
+                    },
+                    validator: (value) {
+                      return value.isEmpty ? 'Please provide a value' : null;
                     },
                   ),
                   Row(
@@ -147,6 +159,11 @@ class _EditProductScreenState extends State<EditProductScreen> {
                           onFieldSubmitted: (_) => _saveForm,
                           onSaved: (value) {
                             _editProduct.imageUrl = value;
+                          },
+                          validator: (value) {
+                            return value.isEmpty
+                                ? 'Please provide a value'
+                                : null;
                           },
                           focusNode: _imageFocusNode,
                         ),

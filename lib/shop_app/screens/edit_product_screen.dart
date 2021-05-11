@@ -93,13 +93,32 @@ class _EditProductScreenState extends State<EditProductScreen> {
         _editProduct,
       );
     } else {
-      await _productData.addProduct(_editProduct);
-    }
+      try {
+        await _productData.addProduct(_editProduct);
+      } on Exception catch (e) {
+        print('e2 : $e');
 
-    setState(() {
-      _isLoading = false;
-    });
-    Navigator.of(context).pop();
+        await showDialog(
+          context: context,
+          builder: (ctx) => AlertDialog(
+            title: Text('An error occurred!'),
+            content: Text('Something went wrong.'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(ctx).pop();
+                },
+                child: Text('Okay'),
+              )
+            ],
+          ),
+        );
+      }
+      setState(() {
+        _isLoading = false;
+      });
+      Navigator.of(context).pop();
+    }
   }
 
   @override

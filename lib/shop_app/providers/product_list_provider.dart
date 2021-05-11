@@ -60,31 +60,37 @@ class ProductList with ChangeNotifier {
       'flutter-be-ee25f-default-rtdb.firebaseio.com',
       'products.json',
     );
-    var response = await http.post(
-      url,
-      body: json.encode(
-        {
-          'title': product.title,
-          'description': product.description,
-          'imageUrl': product.imageUrl,
-          'price': product.price,
-          'isFavorite': product.isFavorite,
-        },
-      ),
-    );
-    print('response ${json.decode(response.body)}');
-    String newID = json.decode(response.body)['name'];
 
-    final _product = Product(
-      id: newID,
-      title: product.title,
-      price: product.price,
-      description: product.description,
-      imageUrl: product.imageUrl,
-    );
-    _items.add(_product);
+    try {
+      var response = await http.post(
+        url,
+        body: json.encode(
+          {
+            'title': product.title,
+            'description': product.description,
+            'imageUrl': product.imageUrl,
+            'price': product.price,
+            'isFavorite': product.isFavorite,
+          },
+        ),
+      );
+      print('response ${json.decode(response.body)}');
+      String newID = json.decode(response.body)['name'];
 
-    notifyListeners();
+      final _product = Product(
+        id: newID,
+        title: product.title,
+        price: product.price,
+        description: product.description,
+        imageUrl: product.imageUrl,
+      );
+      _items.add(_product);
+
+      notifyListeners();
+    } on Exception catch (e) {
+      print('error: $e');
+      throw e;
+    }
   }
 
   void updateProduct(String productId, Product newProduct) {

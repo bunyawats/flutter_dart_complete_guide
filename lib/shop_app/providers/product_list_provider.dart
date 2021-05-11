@@ -55,14 +55,27 @@ class ProductList with ChangeNotifier {
     );
   }
 
-  Future<void> addProduct(Product product) async {
-    final url = Uri.https(
-      'flutter-be-ee25f-default-rtdb.firebaseio.com',
-      'products.json',
-    );
+  final url = Uri.https(
+    'flutter-be-ee25f-default-rtdb.firebaseio.com',
+    'products.json',
+  );
 
+  Future<void> fetchAndSetProducts() async {
     try {
-      var response = await http.post(
+      final response = await http.get(
+        url,
+      );
+      print('response ${json.decode(response.body)}');
+
+    } on Exception catch (e) {
+      print('error: $e');
+      throw e;
+    }
+  }
+
+  Future<void> addProduct(Product product) async {
+    try {
+      final response = await http.post(
         url,
         body: json.encode(
           {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/product_list_provider.dart';
 import '../providers/cart_provider.dart';
 import '../screens/cart_screen.dart';
 import '../widgets/app_drawer.dart';
@@ -21,6 +22,25 @@ class ProductOverviewScreen extends StatefulWidget {
 
 class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   var _showFavoritesOnly = false;
+  var _isInit = true;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (_isInit) {
+      final _productData = Provider.of<ProductList>(
+        context,
+        listen: false,
+      );
+      _productData.fetchAndSetProducts();
+    }
+    _isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {

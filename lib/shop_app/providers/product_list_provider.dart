@@ -54,12 +54,12 @@ class ProductList with ChangeNotifier {
     );
   }
 
-  void addProduct(Product product) {
+  void addProduct(Product product) async {
     final url = Uri.https(
       'flutter-be-ee25f-default-rtdb.firebaseio.com',
       'products.json',
     );
-    http.post(
+    var response = await http.post(
       url,
       body: json.encode(
         {
@@ -71,9 +71,11 @@ class ProductList with ChangeNotifier {
         },
       ),
     );
+    print('response ${json.decode(response.body)}');
+    String newID = json.decode(response.body)['name'];
 
     final _product = Product(
-      id: DateTime.now().toString(),
+      id: newID,
       title: product.title,
       price: product.price,
       description: product.description,

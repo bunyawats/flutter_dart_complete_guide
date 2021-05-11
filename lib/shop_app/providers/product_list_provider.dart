@@ -1,5 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 import 'product_provider.dart';
@@ -54,7 +55,7 @@ class ProductList with ChangeNotifier {
     );
   }
 
-  void addProduct(Product product) async {
+  Future<void> addProduct(Product product) async {
     final url = Uri.https(
       'flutter-be-ee25f-default-rtdb.firebaseio.com',
       'products.json',

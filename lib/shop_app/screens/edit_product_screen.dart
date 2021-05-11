@@ -76,6 +76,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
       _isLoading = true;
     });
 
+    print('EditProductScreen._saveForm');
     print(_editProduct.id);
     print(_editProduct.title);
     print(_editProduct.description);
@@ -87,39 +88,38 @@ class _EditProductScreenState extends State<EditProductScreen> {
       listen: false,
     );
 
-    if (_editProduct.id != null) {
-      _productData.updateProduct(
-        _editProduct.id,
-        _editProduct,
-      );
-    } else {
-      try {
-        await _productData.addProduct(_editProduct);
-      } on Exception catch (e) {
-        print('e2 : $e');
-
-        await showDialog(
-          context: context,
-          builder: (ctx) => AlertDialog(
-            title: Text('An error occurred!'),
-            content: Text('Something went wrong.'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(ctx).pop();
-                },
-                child: Text('Okay'),
-              )
-            ],
-          ),
+    try {
+      if (_editProduct.id != null) {
+        await _productData.updateProduct(
+          _editProduct.id,
+          _editProduct,
         );
-      } finally {
-        setState(() {
-          _isLoading = false;
-        });
-        Navigator.of(context).pop();
+      } else {
+        await _productData.addProduct(_editProduct);
       }
+    } on Exception catch (e) {
+      print('e2 : $e');
+
+      await showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text('An error occurred!'),
+          content: Text('Something went wrong.'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(ctx).pop();
+              },
+              child: Text('Okay'),
+            )
+          ],
+        ),
+      );
     }
+    setState(() {
+      _isLoading = false;
+    });
+    Navigator.of(context).pop();
   }
 
   @override

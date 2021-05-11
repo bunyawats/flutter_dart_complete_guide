@@ -88,6 +88,8 @@ class ProductList with ChangeNotifier {
   }
 
   Future<void> addProduct(Product product) async {
+    print('ProductList.addProduct');
+
     try {
       final response = await http.post(
         url,
@@ -120,17 +122,48 @@ class ProductList with ChangeNotifier {
     }
   }
 
-  void updateProduct(String productId, Product newProduct) {
+  Future<void> updateProduct(String productId, Product product) async {
     final productIndex =
         _items.indexWhere((product) => product.id == productId);
-    if (productIndex > 0) {
-      _items[productIndex] = newProduct;
-      notifyListeners();
+
+    print('ProductList.updateProduct: $productIndex');
+
+    if (productIndex >= 0) {
+      try {
+        final updateUrl = Uri.https(
+          'flutter-be-ee25f-default-rtdb.firebaseio.com',
+          'products/$productId.json',
+        );
+
+        final response = await http.patch(
+          updateUrl,
+          body: json.encode(
+            {
+              'title': product.title,
+              'description': product.description,
+              'imageUrl': product.imageUrl,
+              'price': product.price,
+            },
+          ),
+        );
+        _items[productIndex] = product;
+        notifyListeners();
+      } on Exception catch (e) {
+        print('error: $e');
+        throw e;
+      }
     }
   }
 
-  void removeProduct(String pid) {
-    _items.removeWhere((product) => product.id == pid);
-    notifyListeners();
+  Future<void> removeProduct(String pid) async {
+    print('ProductList.removeProduct: $pid');
+
+    try {
+      _items.removeWhere((product) => product.id == pid);
+      notifyListeners();
+    } on Exception catch (e) {
+      print('error: $e');
+      throw e;
+    }
   }
 }

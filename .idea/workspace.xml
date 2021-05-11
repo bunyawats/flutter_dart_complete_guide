@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/shop_app/models/http_exception.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/product_list_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/product_list_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/user_product_line_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/user_product_line_item.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

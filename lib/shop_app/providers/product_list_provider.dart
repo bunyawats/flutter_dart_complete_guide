@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
+import '../models/http_exception.dart';
 import 'product_provider.dart';
 
 class ProductList with ChangeNotifier {
@@ -166,21 +167,23 @@ class ProductList with ChangeNotifier {
   Future<void> removeProduct(String productId) async {
     print('ProductList.removeProduct: $productId');
 
-    try {
+    final existingProductIndex =
+        _items.indexWhere((prod) => prod.id == productId);
+    var existingProduct = _items[existingProductIndex];
+    _items.removeAt(existingProductIndex);
+    notifyListeners();
+
       final url = Uri.https(
         firebaseHostName,
-        'products/$productId.json_',
+        'products/$productId.json',
       );
-
       final response = await http.delete(url);
       print('response.statusCode ${response.statusCode}');
-      if (response.statusCode < 400 ) {
-        _items.removeWhere((product) => product.id == productId);
+      if (response.statusCode >= 400) {
+        _items.insert(existingProductIndex, existingProduct);
+        notifyListeners();
+        throw HttpException('Cloud not delete product.');
       }
-      notifyListeners();
-    } on Exception catch (e) {
-      print('error: $e');
-      throw e;
-    }
+    existingProduct = null;
   }
 }

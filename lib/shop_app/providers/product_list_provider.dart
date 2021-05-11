@@ -55,13 +55,16 @@ class ProductList with ChangeNotifier {
     );
   }
 
-  final url = Uri.https(
-    'flutter-be-ee25f-default-rtdb.firebaseio.com',
-    'products.json',
-  );
+  static const firebaseHostName =
+      'flutter-be-ee25f-default-rtdb.firebaseio.com';
 
   Future<void> fetchAndSetProducts() async {
     try {
+      final url = Uri.https(
+        firebaseHostName,
+        'products.json',
+      );
+
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       print('response $extractedData');
@@ -91,6 +94,11 @@ class ProductList with ChangeNotifier {
     print('ProductList.addProduct');
 
     try {
+      final url = Uri.https(
+        firebaseHostName,
+        'products.json',
+      );
+
       final response = await http.post(
         url,
         body: json.encode(
@@ -130,13 +138,13 @@ class ProductList with ChangeNotifier {
 
     if (productIndex >= 0) {
       try {
-        final updateUrl = Uri.https(
-          'flutter-be-ee25f-default-rtdb.firebaseio.com',
+        final url = Uri.https(
+          firebaseHostName,
           'products/$productId.json',
         );
 
         final response = await http.patch(
-          updateUrl,
+          url,
           body: json.encode(
             {
               'title': product.title,
@@ -155,11 +163,20 @@ class ProductList with ChangeNotifier {
     }
   }
 
-  Future<void> removeProduct(String pid) async {
-    print('ProductList.removeProduct: $pid');
+  Future<void> removeProduct(String productId) async {
+    print('ProductList.removeProduct: $productId');
 
     try {
-      _items.removeWhere((product) => product.id == pid);
+      final url = Uri.https(
+        firebaseHostName,
+        'products/$productId.json_',
+      );
+
+      final response = await http.delete(url);
+      print('response.statusCode ${response.statusCode}');
+      if (response.statusCode < 400 ) {
+        _items.removeWhere((product) => product.id == productId);
+      }
       notifyListeners();
     } on Exception catch (e) {
       print('error: $e');

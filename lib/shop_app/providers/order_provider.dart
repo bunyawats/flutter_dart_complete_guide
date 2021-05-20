@@ -1,5 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
-import 'package:flutter_dart_complete_guide/shop_app/providers/cart_provider.dart';
+import 'package:http/http.dart' as http;
+
+import '../models/http_exception.dart';
+import 'cart_provider.dart';
 
 class OrderItem {
   final String id;
@@ -22,17 +27,50 @@ class OrderList with ChangeNotifier {
     return [..._orders];
   }
 
-  void addOrder(List<CartItem> cartProducts, double total) {
-    _orders.insert(
-        0,
-        OrderItem(
-          id: '${DateTime.now()}',
-          amount: total,
-          dateTime: DateTime.now(),
-          productList: cartProducts,
-        ));
-    notifyListeners();
-    print(' call addOrder ');
+  static const firebaseHostName =
+      'flutter-be-ee25f-default-rtdb.firebaseio.com';
+
+  Future<void> addOrder(List<CartItem> cartProducts, double total) async {
+    try {
+      final url = Uri.https(
+        firebaseHostName,
+        'orders.json',
+      );
+      final timestamp = DateTime.now();
+      final response = await http.post(
+        url,
+        body: json.encode(
+          {
+            'amount': total,
+            'dateTime': timestamp.toIso8601String(),
+            'productList': cartProducts
+                .map((cp) => {
+                      'title': cp.title,
+                      'quantity': cp.quantity,
+                      'price': cp.price,
+                    })
+                .toList(),
+          },
+        ),
+      );
+      print('response ${json.decode(response.body)}');
+      String newID = json.decode(response.body)['name'];
+
+      final _order = OrderItem(
+        id: newID,
+        amount: total,
+        dateTime: timestamp,
+        productList: cartProducts,
+      );
+
+      _orders.insert(0, _order);
+      notifyListeners();
+
+      print(' call addOrder ');
+    } on Exception catch (e) {
+      print('error: $e');
+      throw e;
+    }
   }
 
   void removeOrder(String orderId) {

@@ -1,4 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
+import 'package:http/http.dart' as http;
+
+import '../models/http_exception.dart';
 
 class Product with ChangeNotifier {
   String id;
@@ -18,9 +23,41 @@ class Product with ChangeNotifier {
     this.isFavorite = false,
   });
 
-  void toggleFavoriteSataus() {
+  static const firebaseHostName =
+      'flutter-be-ee25f-default-rtdb.firebaseio.com';
+
+  Future<void> toggleFavoriteSataus() async {
+    print('Call Product.toggleFavoriteSataus: ${!isFavorite}');
+
     isFavorite = !isFavorite;
-    print(isFavorite);
     notifyListeners();
+
+    final url = Uri.https(
+      firebaseHostName,
+      'products/${id}11.json',
+    );
+    try {
+      final response = await http.get(url);
+      final _body = json.decode(response.body);
+      print('response $_body');
+
+      if (_body == null) {
+        throw HttpException('Cloud not find product.');
+      } else {
+        await http.patch(
+          url,
+          body: json.encode(
+            {
+              'isFavorite': isFavorite,
+            },
+          ),
+        );
+      }
+    } on Exception catch (e) {
+      print('handle: $e');
+      isFavorite = !isFavorite;
+      notifyListeners();
+      throw e;
+    }
   }
 }

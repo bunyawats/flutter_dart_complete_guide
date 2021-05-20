@@ -42,25 +42,7 @@ class CartScreen extends StatelessWidget {
                     ),
                     backgroundColor: Theme.of(context).primaryColor,
                   ),
-                  TextButton(
-                    onPressed: () {
-                      final orderList =
-                          Provider.of<OrderList>(context, listen: false);
-                      final cartProducts = cart.items.values.toList();
-                      orderList.addOrder(
-                        cartProducts,
-                        cart.totalAmount,
-                      );
-
-                      cart.clear();
-                    },
-                    child: Text(
-                      'ORDER NOW',
-                      style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                  ),
+                  OrderButton(cart: cart),
                 ],
               ),
             ),
@@ -92,6 +74,53 @@ class CartScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class OrderButton extends StatefulWidget {
+  const OrderButton({
+    Key key,
+    @required this.cart,
+  }) : super(key: key);
+
+  final Cart cart;
+
+  @override
+  State<OrderButton> createState() => _OrderButtonState();
+}
+
+class _OrderButtonState extends State<OrderButton> {
+  var _isLoading = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: (widget.cart.totalAmount <= 0 || _isLoading)
+          ? null
+          : () async {
+              setState(() {
+                _isLoading = true;
+              });
+              final orderList = Provider.of<OrderList>(context, listen: false);
+              final cartProducts = widget.cart.items.values.toList();
+              await orderList.addOrder(
+                cartProducts,
+                widget.cart.totalAmount,
+              );
+              setState(() {
+                _isLoading = false;
+              });
+              widget.cart.clear();
+            },
+      child: _isLoading
+          ? CircularProgressIndicator()
+          : Text(
+              'ORDER NOW',
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
+              ),
+            ),
     );
   }
 }

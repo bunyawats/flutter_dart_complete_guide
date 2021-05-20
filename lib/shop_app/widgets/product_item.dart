@@ -17,6 +17,8 @@ class ProductItem extends StatelessWidget {
       listen: false,
     );
 
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
@@ -38,8 +40,17 @@ class ProductItem extends StatelessWidget {
               icon: Icon(
                 p.isFavorite ? Icons.favorite : Icons.favorite_border,
               ),
-              onPressed: () {
-                p.toggleFavoriteSataus();
+              onPressed: () async {
+                try {
+                  await p.toggleFavoriteSataus();
+                } on Exception catch (e) {
+                  scaffoldMessenger.showSnackBar(
+                    SnackBar(
+                      content: Text('Updating fail'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                }
               },
               color: Theme.of(context).accentColor,
             ),

@@ -10,6 +10,7 @@ import 'screens/order_screen.dart';
 import 'screens/product_detail_screen.dart';
 import 'screens/product_overview_screen.dart';
 import 'screens/user_product_screen.dart';
+import 'screens/auth_screen.dart';
 
 void main() => runApp(ShopApp());
 
@@ -30,7 +31,8 @@ class ShopApp extends StatelessWidget {
           accentColor: Colors.deepOrange,
           fontFamily: 'Lato',
         ),
-        initialRoute: ProductOverviewScreen.routeName,
+        // initialRoute: ProductOverviewScreen.routeName,
+        home: AuthScreen(),
         routes: {
           ProductOverviewScreen.routeName: (ctx) => ProductOverviewScreen(),
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
@@ -38,6 +40,7 @@ class ShopApp extends StatelessWidget {
           OrderScreen.routeName: (ctx) => OrderScreen(),
           UserProductScreen.routeName: (ctx) => UserProductScreen(),
           EditProductScreen.routeName: (ctx) => EditProductScreen(),
+          AuthScreen.routeName: (ctx) => AuthScreen(),
         },
       ),
     );

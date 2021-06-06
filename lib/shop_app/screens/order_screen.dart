@@ -13,49 +13,59 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-  var _isLoading = true;
+
+  Future _orderFuture;
+  Future _obtainOrderFuture() {
+    return Provider.of<OrderList>(
+      context,
+      listen: false,
+    ).fetchAndSetOrders();
+  }
 
   @override
   void initState() {
-    Future.delayed(Duration.zero).then((_) async {
-      setState(() {
-        _isLoading = true;
-      });
-      final orderData = Provider.of<OrderList>(
-        context,
-        listen: false,
-      );
-      await orderData.fetchAndSetOrders();
-      setState(() {
-        _isLoading = false;
-      });
-    });
-
+    _orderFuture = _obtainOrderFuture();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    final orderData = Provider.of<OrderList>(context);
+    //  final orderData = Provider.of<OrderList>(context);
+    print('building Orders');
 
     return Scaffold(
       appBar: AppBar(
         title: Text('My Order'),
       ),
       drawer: AppDrawer(),
-      body: _isLoading
-          ? Center(
+      body: FutureBuilder(
+        future: _orderFuture,
+        builder: (ctx, dataSnapshot) {
+          if (dataSnapshot.connectionState == ConnectionState.waiting) {
+            return Center(
               child: CircularProgressIndicator(),
-            )
-          : ListView.builder(
-              itemBuilder: (ctx, index) {
-                final order = orderData.orders[index];
-                return OrderLineItem(
-                  order: order,
-                );
-              },
-              itemCount: orderData.orders.length,
-            ),
+            );
+          } else {
+            if (dataSnapshot.error != null) {
+              return Center(
+                child: Text('An error occurred!'),
+              );
+            } else {
+              return Consumer<OrderList>(
+                builder: (ctx, orderData, child) => ListView.builder(
+                  itemBuilder: (ctx, index) {
+                    final order = orderData.orders[index];
+                    return OrderLineItem(
+                      order: order,
+                    );
+                  },
+                  itemCount: orderData.orders.length,
+                ),
+              );
+            }
+          }
+        },
+      ),
     );
   }
 }

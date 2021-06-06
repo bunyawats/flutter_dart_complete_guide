@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/order_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/order_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/product_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/product_provider.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/cart_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/cart_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/product_list_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/product_list_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/order_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/order_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">

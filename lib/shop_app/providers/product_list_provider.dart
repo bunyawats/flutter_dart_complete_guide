@@ -68,7 +68,11 @@ class ProductList with ChangeNotifier {
 
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
-      print('response $extractedData');
+      print('response: $extractedData');
+      if (extractedData == null) {
+        return null;
+      }
+
       final List<Product> loadedProductList = [];
 
       extractedData.forEach((prodId, prodData) {
@@ -173,17 +177,17 @@ class ProductList with ChangeNotifier {
     _items.removeAt(existingProductIndex);
     notifyListeners();
 
-      final url = Uri.https(
-        firebaseHostName,
-        'products/$productId.json',
-      );
-      final response = await http.delete(url);
-      print('response.statusCode ${response.statusCode}');
-      if (response.statusCode >= 400) {
-        _items.insert(existingProductIndex, existingProduct);
-        notifyListeners();
-        throw HttpException('Cloud not delete product.');
-      }
+    final url = Uri.https(
+      firebaseHostName,
+      'products/$productId.json',
+    );
+    final response = await http.delete(url);
+    print('response.statusCode ${response.statusCode}');
+    if (response.statusCode >= 400) {
+      _items.insert(existingProductIndex, existingProduct);
+      notifyListeners();
+      throw HttpException('Cloud not delete product.');
+    }
     existingProduct = null;
   }
 }

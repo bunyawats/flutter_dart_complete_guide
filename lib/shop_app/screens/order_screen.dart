@@ -13,7 +13,6 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-
   Future _orderFuture;
   Future _obtainOrderFuture() {
     return Provider.of<OrderList>(

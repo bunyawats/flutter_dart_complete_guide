@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 
+import '../models/http_exception.dart';
 import 'api_key.dart';
 
 class Auth with ChangeNotifier {
@@ -23,17 +24,26 @@ class Auth with ChangeNotifier {
       {'key': API_KEY},
     );
 
-    final response = await http.post(
-      url,
-      body: json.encode({
-        'email': email,
-        'password': password,
-        'returnSecureToken': true,
-      }),
-    );
+    try {
+      final response = await http.post(
+        url,
+        body: json.encode({
+          'email': email,
+          'password': password,
+          'returnSecureToken': true,
+        }),
+      );
 
-    final extractedData = json.decode(response.body) as Map<String, dynamic>;
-    print('response: $extractedData');
+      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      print('response: $extractedData');
+
+      if (extractedData['error'] != null) {
+        String errorMsg = extractedData['error']['message'];
+        throw HttpException(errorMsg);
+      }
+    } catch (error) {
+      throw error;
+    }
   }
 
   Future<void> signup(String email, String password) async {

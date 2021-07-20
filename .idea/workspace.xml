@@ -5,20 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/shop_app/providers/api_key.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/shop_app/providers/api_key.dart.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/shop_app/providers/auth.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/flutter_dart_complete_guide_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/flutter_dart_complete_guide_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/auth.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/auth_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/bunyawatsingchai/.android/avd/Pixel_5_API_S.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/bunyawatsingchai/.android/avd/Pixel_4_API_30.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -42,14 +41,6 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" />
-    <panes>
-      <pane id="ProjectPane">
-        <option name="show-excluded-files" value="false" />
-      </pane>
-    </panes>
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -58,14 +49,16 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/shop_app/providers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -113,12 +106,6 @@
       <updated>1614960732107</updated>
     </task>
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-    </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

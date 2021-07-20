@@ -12,10 +12,14 @@ class Auth with ChangeNotifier {
   DateTime _expiryDate;
   String _userId;
 
-  Future<void> signup(String email, String password) async {
+  Future<void> _authenticate(
+    String email,
+    String password,
+    String urlSegment,
+  ) async {
     final url = Uri.https(
       firebaseHostName,
-      'v1/accounts:signUp',
+      'v1/$urlSegment',
       {'key': API_KEY},
     );
 
@@ -30,5 +34,13 @@ class Auth with ChangeNotifier {
 
     final extractedData = json.decode(response.body) as Map<String, dynamic>;
     print('response: $extractedData');
+  }
+
+  Future<void> signup(String email, String password) async {
+    return _authenticate(email, password, 'accounts:signUp');
+  }
+
+  Future<void> login(String email, String password) async {
+    return _authenticate(email, password, 'accounts:signInWithPassword');
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
+import '../providers/auth.dart';
 import '../providers/cart_provider.dart';
 import '../providers/product_provider.dart';
 import '../screens/product_detail_screen.dart';
@@ -13,6 +15,10 @@ class ProductItem extends StatelessWidget {
       listen: false,
     );
     final cart = Provider.of<Cart>(
+      context,
+      listen: false,
+    );
+    final auth = Provider.of<Auth>(
       context,
       listen: false,
     );
@@ -42,7 +48,7 @@ class ProductItem extends StatelessWidget {
               ),
               onPressed: () async {
                 try {
-                  await p.toggleFavoriteSataus();
+                  await p.toggleFavoriteStatus(auth.token);
                 } on Exception catch (e) {
                   scaffoldMessenger.showSnackBar(
                     SnackBar(

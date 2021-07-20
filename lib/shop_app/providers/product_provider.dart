@@ -26,15 +26,16 @@ class Product with ChangeNotifier {
   static const firebaseHostName =
       'flutter-be-ee25f-default-rtdb.firebaseio.com';
 
-  Future<void> toggleFavoriteSataus() async {
-    print('Call Product.toggleFavoriteSataus: ${!isFavorite}');
+  Future<void> toggleFavoriteStatus(String authToken) async {
+    print('Call Product.toggleFavoriteStatus: ${!isFavorite}');
 
     isFavorite = !isFavorite;
     notifyListeners();
 
     final url = Uri.https(
       firebaseHostName,
-      'products/${id}11.json',
+      'products/${id}.json',
+      {'auth': authToken},
     );
     try {
       final response = await http.get(url);

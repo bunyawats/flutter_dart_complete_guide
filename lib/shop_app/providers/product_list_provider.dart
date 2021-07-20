@@ -107,6 +107,7 @@ class ProductList with ChangeNotifier {
       final url = Uri.https(
         firebaseHostName,
         'products.json',
+        {'auth': authToken},
       );
 
       final response = await http.post(
@@ -151,6 +152,7 @@ class ProductList with ChangeNotifier {
         final url = Uri.https(
           firebaseHostName,
           'products/$productId.json',
+          {'auth': authToken},
         );
 
         final response = await http.patch(
@@ -185,6 +187,7 @@ class ProductList with ChangeNotifier {
     final url = Uri.https(
       firebaseHostName,
       'products/$productId.json',
+      {'auth': authToken},
     );
     final response = await http.delete(url);
     print('response.statusCode ${response.statusCode}');

@@ -22,6 +22,10 @@ class OrderItem {
 class OrderList with ChangeNotifier {
   List<OrderItem> _orders = [];
 
+  final String authToken;
+
+  OrderList(this.authToken, this._orders);
+
   List<OrderItem> get orders {
     return [..._orders];
   }
@@ -33,6 +37,7 @@ class OrderList with ChangeNotifier {
     final url = Uri.https(
       firebaseHostName,
       'orders.json',
+      {'auth': authToken},
     );
 
     final response = await http.get(url);
@@ -74,6 +79,7 @@ class OrderList with ChangeNotifier {
       final url = Uri.https(
         firebaseHostName,
         'orders.json',
+        {'auth': authToken},
       );
 
       final timestamp = DateTime.now();

@@ -42,6 +42,10 @@ class ProductList with ChangeNotifier {
     // ),
   ];
 
+  final String authToken;
+
+  ProductList(this.authToken, this._items);
+
   List<Product> get items {
     return [..._items];
   }
@@ -64,6 +68,7 @@ class ProductList with ChangeNotifier {
       final url = Uri.https(
         firebaseHostName,
         'products.json',
+        {'auth': authToken},
       );
 
       final response = await http.get(url);

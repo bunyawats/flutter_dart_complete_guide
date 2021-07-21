@@ -26,7 +26,7 @@ class Product with ChangeNotifier {
   static const firebaseHostName =
       'flutter-be-ee25f-default-rtdb.firebaseio.com';
 
-  Future<void> toggleFavoriteStatus(String authToken) async {
+  Future<void> toggleFavoriteStatus(String authToken, String userId) async {
     print('Call Product.toggleFavoriteStatus: ${!isFavorite}');
 
     isFavorite = !isFavorite;
@@ -34,26 +34,34 @@ class Product with ChangeNotifier {
 
     final url = Uri.https(
       firebaseHostName,
-      'products/${id}.json',
+      '/userFavorites/$userId/$id.json',
       {'auth': authToken},
     );
+
     try {
       final response = await http.get(url);
       final _body = json.decode(response.body);
       print('response $_body');
 
-      if (_body == null) {
-        throw HttpException('Cloud not find product.');
-      } else {
-        await http.patch(
-          url,
-          body: json.encode(
-            {
-              'isFavorite': isFavorite,
-            },
-          ),
-        );
-      }
+      // if (_body == null) {
+      //   throw HttpException('Cloud not find product.');
+      // } else {
+      //   await http.patch(
+      //     url,
+      //     body: json.encode(
+      //       {
+      //         'isFavorite': isFavorite,
+      //       },
+      //     ),
+      //   );
+      // }
+
+      await http.put(
+        url,
+        body: json.encode(
+          isFavorite,
+        ),
+      );
     } on Exception catch (e) {
       print('handle: $e');
       isFavorite = !isFavorite;

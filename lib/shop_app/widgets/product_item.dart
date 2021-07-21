@@ -48,7 +48,7 @@ class ProductItem extends StatelessWidget {
               ),
               onPressed: () async {
                 try {
-                  await p.toggleFavoriteStatus(auth.token);
+                  await p.toggleFavoriteStatus(auth.token, auth.userId);
                 } on Exception catch (e) {
                   scaffoldMessenger.showSnackBar(
                     SnackBar(

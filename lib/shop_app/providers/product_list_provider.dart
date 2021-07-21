@@ -43,8 +43,13 @@ class ProductList with ChangeNotifier {
   ];
 
   final String authToken;
+  final String userId;
 
-  ProductList(this.authToken, this._items);
+  ProductList(
+    this.authToken,
+    this.userId,
+    this._items,
+  );
 
   List<Product> get items {
     return [..._items];
@@ -65,7 +70,7 @@ class ProductList with ChangeNotifier {
 
   Future<void> fetchAndSetProducts() async {
     try {
-      final url = Uri.https(
+      var url = Uri.https(
         firebaseHostName,
         'products.json',
         {'auth': authToken},
@@ -75,8 +80,16 @@ class ProductList with ChangeNotifier {
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       print('response: $extractedData');
       if (extractedData == null) {
-        return null;
+        return;
       }
+
+      url = Uri.https(
+        firebaseHostName,
+        '/userFavorites/$userId/.json',
+        {'auth': authToken},
+      );
+      final favoriteResponse = await http.get(url);
+      final favoriteData = json.decode(favoriteResponse.body);
 
       final List<Product> loadedProductList = [];
 
@@ -87,7 +100,8 @@ class ProductList with ChangeNotifier {
             title: prodData['title'],
             description: prodData['description'],
             price: prodData['price'],
-            isFavorite: prodData['isFavorite'],
+            isFavorite:
+                favoriteData == null ? false : favoriteData[prodId] ?? false,
             imageUrl: prodData['imageUrl'],
           ),
         );
@@ -118,7 +132,6 @@ class ProductList with ChangeNotifier {
             'description': product.description,
             'imageUrl': product.imageUrl,
             'price': product.price,
-            'isFavorite': product.isFavorite,
           },
         ),
       );

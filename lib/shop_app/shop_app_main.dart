@@ -29,6 +29,7 @@ class ShopApp extends StatelessWidget {
             ) =>
                 ProductList(
               auth.token,
+              auth.userId,
               previousProductList == null ? [] : previousProductList.items,
             ),
           ),

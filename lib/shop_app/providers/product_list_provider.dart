@@ -68,12 +68,20 @@ class ProductList with ChangeNotifier {
   static const firebaseHostName =
       'flutter-be-ee25f-default-rtdb.firebaseio.com';
 
-  Future<void> fetchAndSetProducts() async {
+  Future<void> fetchAndSetProducts([bool filterByUser = false]) async {
     try {
       var url = Uri.https(
         firebaseHostName,
         'products.json',
-        {'auth': authToken},
+        filterByUser
+            ? {
+                'auth': authToken,
+                'orderBy': '"creatorId"',
+                'equalTo': '"$userId"',
+              }
+            : {
+                'auth': authToken,
+              },
       );
 
       final response = await http.get(url);
@@ -132,6 +140,7 @@ class ProductList with ChangeNotifier {
             'description': product.description,
             'imageUrl': product.imageUrl,
             'price': product.price,
+            'creatorId': userId,
           },
         ),
       );

@@ -14,16 +14,17 @@ class UserProductScreen extends StatelessWidget {
       context,
       listen: false,
     );
-    await _productData.fetchAndSetProducts();
+    await _productData.fetchAndSetProducts(true);
   }
 
   @override
   Widget build(BuildContext context) {
-    final productList = Provider.of<ProductList>(
-      context,
-      listen: true,
-    );
+    // final productList = Provider.of<ProductList>(
+    //   context,
+    //   listen: true,
+    // );
 
+    print('rebuilding...');
     return Scaffold(
       appBar: AppBar(
         title: const Text('User Product'),
@@ -38,29 +39,40 @@ class UserProductScreen extends StatelessWidget {
         ],
       ),
       drawer: AppDrawer(),
-      body: RefreshIndicator(
-        onRefresh: () => _refreshProduct(context),
-        child: Padding(
-          padding: EdgeInsets.all(8),
-          child: ListView.builder(
-            itemBuilder: (ctx, index) {
-              final product = productList.items[index];
+      body: FutureBuilder(
+          future: _refreshProduct(context),
+          builder: (context, snapshot) {
+            return snapshot.connectionState == ConnectionState.waiting
+                ? Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : RefreshIndicator(
+                    onRefresh: () => _refreshProduct(context),
+                    child: Consumer<ProductList>(
+                        builder: (context, productList, _) {
+                      return Padding(
+                        padding: EdgeInsets.all(8),
+                        child: ListView.builder(
+                          itemBuilder: (ctx, index) {
+                            final product = productList.items[index];
 
-              return Column(
-                children: [
-                  UserProductLineItem(
-                    productId: product.id,
-                    title: product.title,
-                    imageUrl: product.imageUrl,
-                  ),
-                  Divider(),
-                ],
-              );
-            },
-            itemCount: productList.items.length,
-          ),
-        ),
-      ),
+                            return Column(
+                              children: [
+                                UserProductLineItem(
+                                  productId: product.id,
+                                  title: product.title,
+                                  imageUrl: product.imageUrl,
+                                ),
+                                Divider(),
+                              ],
+                            );
+                          },
+                          itemCount: productList.items.length,
+                        ),
+                      );
+                    }),
+                  );
+          }),
     );
   }
 }

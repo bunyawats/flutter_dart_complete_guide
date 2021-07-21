@@ -41,6 +41,7 @@ class ShopApp extends StatelessWidget {
           ) =>
                   OrderList(
                     auth.token,
+                    auth.userId,
                     previousOrderList == null ? [] : previousOrderList.orders,
                   )),
           ChangeNotifierProvider(create: (ctx) => Cart()),

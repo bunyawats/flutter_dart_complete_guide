@@ -23,8 +23,13 @@ class OrderList with ChangeNotifier {
   List<OrderItem> _orders = [];
 
   final String authToken;
+  final String userId;
 
-  OrderList(this.authToken, this._orders);
+  OrderList(
+    this.authToken,
+    this.userId,
+    this._orders,
+  );
 
   List<OrderItem> get orders {
     return [..._orders];
@@ -36,7 +41,7 @@ class OrderList with ChangeNotifier {
   Future<void> fetchAndSetOrders() async {
     final url = Uri.https(
       firebaseHostName,
-      'orders.json',
+      'orders/$userId.json',
       {'auth': authToken},
     );
 
@@ -78,7 +83,7 @@ class OrderList with ChangeNotifier {
     try {
       final url = Uri.https(
         firebaseHostName,
-        'orders.json',
+        'orders/$userId.json',
         {'auth': authToken},
       );
 

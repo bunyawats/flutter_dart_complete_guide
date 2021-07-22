@@ -86,7 +86,7 @@ class ProductList with ChangeNotifier {
 
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
-      print('response: $extractedData');
+      // print('response: $extractedData');
       if (extractedData == null) {
         return;
       }
@@ -177,7 +177,7 @@ class ProductList with ChangeNotifier {
           {'auth': authToken},
         );
 
-        final response = await http.patch(
+        await http.patch(
           url,
           body: json.encode(
             {

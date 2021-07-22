@@ -49,7 +49,7 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
       firstDate: DateTime(2019),
       lastDate: DateTime.now(),
     );
-    print('${_selectedDate}');
+    print('$_selectedDate');
     setState(() => _selectedDate = _selectedDate);
   }
 

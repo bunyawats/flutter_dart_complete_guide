@@ -50,6 +50,7 @@ class UserProductLineItem extends StatelessWidget {
                   );
                   await _productData.removeProduct(productId);
                 } on Exception catch (e) {
+                  print(e);
                   scaffoldMessenger.showSnackBar(
                     SnackBar(
                       content: Text('Deleting fail'),

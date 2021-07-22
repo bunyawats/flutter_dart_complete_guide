@@ -50,6 +50,7 @@ class ProductItem extends StatelessWidget {
                 try {
                   await p.toggleFavoriteStatus(auth.token, auth.userId);
                 } on Exception catch (e) {
+                  print(e);
                   scaffoldMessenger.showSnackBar(
                     SnackBar(
                       content: Text('Updating fail'),

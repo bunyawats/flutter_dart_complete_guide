@@ -59,7 +59,7 @@ class ProductItem extends StatelessWidget {
                   );
                 }
               },
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           backgroundColor: Colors.black87,
@@ -90,7 +90,7 @@ class ProductItem extends StatelessWidget {
                   ),
                 );
               },
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ),

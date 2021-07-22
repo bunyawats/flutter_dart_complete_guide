@@ -19,10 +19,16 @@ void main() => runApp(ShopApp());
 class ShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = ThemeData(
+      primarySwatch: Colors.purple,
+      fontFamily: 'Lato',
+    );
+
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (ctx) => Auth()),
           ChangeNotifierProxyProvider<Auth, ProductList>(
+            create: null,
             update: (
               ctx,
               auth,
@@ -35,11 +41,12 @@ class ShopApp extends StatelessWidget {
             ),
           ),
           ChangeNotifierProxyProvider<Auth, OrderList>(
+              create: null,
               update: (
-            ctx,
-            auth,
-            previousOrderList,
-          ) =>
+                ctx,
+                auth,
+                previousOrderList,
+              ) =>
                   OrderList(
                     auth.token,
                     auth.userId,
@@ -51,10 +58,9 @@ class ShopApp extends StatelessWidget {
           builder: (ctx, auth, _) => MaterialApp(
             title: 'Shop App',
             debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              primarySwatch: Colors.purple,
-              accentColor: Colors.deepOrange,
-              fontFamily: 'Lato',
+            theme: theme.copyWith(
+              colorScheme:
+                  theme.colorScheme.copyWith(secondary: Colors.deepOrange),
             ),
             // initialRoute: ProductOverviewScreen.routeName,
             home: auth.isAuth

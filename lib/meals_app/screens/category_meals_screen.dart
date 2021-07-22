@@ -19,16 +19,6 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   String _categoryTitle;
   var _loadedInitData = false;
 
-  void _removeItem(String mealId) {
-    setState(() {
-      if (mealId != null) {
-        _displayMeals.removeWhere(
-          (meal) => meal.id == mealId,
-        );
-      }
-    });
-  }
-
   @override
   void initState() {
     super.initState();

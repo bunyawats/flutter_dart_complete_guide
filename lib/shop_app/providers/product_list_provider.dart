@@ -115,8 +115,8 @@ class ProductList with ChangeNotifier {
         );
       });
       _items = loadedProductList;
-      notifyListeners();
-    } on Exception catch (e) {
+      // notifyListeners();
+    } catch (e) {
       print('error: $e');
       throw e;
     }

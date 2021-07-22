@@ -20,42 +20,41 @@ void main() {
 final title = 'Column Alignment';
 
 class MyApp extends StatelessWidget {
+  final ThemeData theme = ThemeData(
+    primarySwatch: Colors.green,
+    errorColor: Colors.red,
+    fontFamily: 'Quicksand',
+    textTheme: ThemeData.light().textTheme.copyWith(
+          headline6: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.blue,
+          ),
+          button: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+    appBarTheme: AppBarTheme(
+      textTheme: ThemeData.light().textTheme.copyWith(
+            headline6: TextStyle(
+              fontFamily: 'OpenSans',
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: title,
-      theme: _buildThemeData(),
-      home: MyHomePage(),
-    );
-  }
-
-  ThemeData _buildThemeData() {
-    return ThemeData(
-      primarySwatch: Colors.green,
-      accentColor: Colors.amber,
-      errorColor: Colors.red,
-      fontFamily: 'Quicksand',
-      textTheme: ThemeData.light().textTheme.copyWith(
-            headline6: TextStyle(
-              fontFamily: 'OpenSans',
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.blue,
-            ),
-            button: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-      appBarTheme: AppBarTheme(
-        textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: TextStyle(
-                fontFamily: 'OpenSans',
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+      theme: theme.copyWith(
+        colorScheme: theme.colorScheme.copyWith(secondary: Colors.amber),
       ),
+      home: MyHomePage(),
     );
   }
 }
@@ -195,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: theme.textTheme.headline6,
             ),
             Switch.adaptive(
-              activeColor: Theme.of(context).accentColor,
+              activeColor: Theme.of(context).colorScheme.secondary,
               value: _showChart,
               onChanged: (val) {
                 setState(() {

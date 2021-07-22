@@ -37,7 +37,7 @@ class MeralDetailScreen extends StatelessWidget {
                 itemBuilder: (ctx, index) {
                   var ingredient = selectedMeal.ingredients[index];
                   return Card(
-                    color: Theme.of(context).accentColor,
+                    color: Theme.of(context).colorScheme.secondary,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                         vertical: 5,

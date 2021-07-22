@@ -14,8 +14,7 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    // final transformConfig = Matrix4.rotationZ(-8 * pi / 180);
-    // transformConfig.translate(-10.0);
+
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       body: Stack(
@@ -62,12 +61,12 @@ class AuthScreen extends StatelessWidget {
                       ),
                       child: Text(
                         'MyShop',
-                        style: TextStyle(
-                          color: Theme.of(context).accentTextTheme.title.color,
-                          fontSize: 50,
-                          fontFamily: 'Anton',
-                          fontWeight: FontWeight.normal,
-                        ),
+                        style: Theme.of(context).textTheme.headline6.copyWith(
+                              color: Theme.of(context).colorScheme.onSecondary,
+                              fontSize: 50,
+                              fontFamily: 'Anton',
+                              fontWeight: FontWeight.normal,
+                            ),
                       ),
                     ),
                   ),
@@ -111,7 +110,7 @@ class _AuthCardState extends State<AuthCard> {
               title: Text('An Error Occurred!'),
               content: Text(message),
               actions: <Widget>[
-                FlatButton(
+                TextButton(
                     onPressed: () {
                       Navigator.of(ctx).pop();
                     },
@@ -221,6 +220,8 @@ class _AuthCardState extends State<AuthCard> {
                   validator: (value) {
                     if (value.isEmpty || value.length < 5) {
                       return 'Password is too short!';
+                    } else {
+                      return null;
                     }
                   },
                   onSaved: (value) {
@@ -236,6 +237,8 @@ class _AuthCardState extends State<AuthCard> {
                         ? (value) {
                             if (value != _passwordController.text) {
                               return 'Passwords do not match!';
+                            } else {
+                              return null;
                             }
                           }
                         : null,
@@ -246,25 +249,28 @@ class _AuthCardState extends State<AuthCard> {
                 if (_isLoading)
                   CircularProgressIndicator()
                 else
-                  RaisedButton(
+                  ElevatedButton(
                     child:
                         Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
                     onPressed: _submit,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
                     ),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).primaryTextTheme.button.color,
                   ),
-                FlatButton(
+                TextButton(
                   child: Text(
                       '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
                   onPressed: _switchAuthMode,
-                  padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  textColor: Theme.of(context).primaryColor,
+                  style: TextButton.styleFrom(
+                    primary: Theme.of(context).primaryColor,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
                 ),
               ],
             ),

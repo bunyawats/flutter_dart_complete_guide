@@ -6,17 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/meals_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/meals_app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/screens/category_meals_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/screens/category_meals_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/screens/meal_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/screens/meal_detail_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/screens/tabs_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/screens/tabs_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/meals_app/widgets/main_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/widgets/main_drawer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/personal_expense_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/personal_expense_app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/product_list_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/product_list_provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/auth_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/badge.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/badge.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +48,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/shop_app/screens" />
     <property name="project.structure.last.edited" value="SDKs" />

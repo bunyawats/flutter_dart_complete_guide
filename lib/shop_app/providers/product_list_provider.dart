@@ -218,6 +218,6 @@ class ProductList with ChangeNotifier {
       notifyListeners();
       throw HttpException('Cloud not delete product.');
     }
-    existingProduct = null;
+    // existingProduct = null;
   }
 }

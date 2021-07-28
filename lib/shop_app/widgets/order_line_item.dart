@@ -8,8 +8,8 @@ class OrderLineItem extends StatefulWidget {
   final OrderItem order;
 
   const OrderLineItem({
-    Key key,
-    this.order,
+    Key? key,
+    required this.order,
   }) : super(key: key);
 
   @override

@@ -6,10 +6,10 @@ class ChartBar extends StatelessWidget {
   final double spendingPctOfTotal;
 
   const ChartBar({
-    Key key,
-    this.label,
-    this.spendingAmount,
-    this.spendingPctOfTotal,
+    Key? key,
+    required this.label,
+    required this.spendingAmount,
+    required this.spendingPctOfTotal,
   }) : super(key: key);
 
   @override

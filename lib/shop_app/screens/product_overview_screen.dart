@@ -31,23 +31,32 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
   }
 
   @override
-  void didChangeDependencies() async {
-    if (!this.mounted) {
-      return;
-    }
-
-    if (_isInit) {
-      setState(() {
-        _isLoading = true;
-      });
-      final _productData = Provider.of<ProductList>(context);
-      await _productData.fetchAndSetProducts();
-      setState(() {
-        _isLoading = false;
-      });
-    }
+  void dispose() {
     _isInit = false;
-    super.didChangeDependencies();
+    super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() async {
+
+    try {
+      if (_isInit) {
+            setState(() {
+              _isLoading = true;
+            });
+            final _productData = Provider.of<ProductList>(context);
+            await _productData.fetchAndSetProducts();
+            setState(() {
+              _isLoading = false;
+            });
+          }
+      _isInit = false;
+      super.didChangeDependencies();
+    } catch (e) {
+      //TODO
+      print('Why here?');
+      print(e);
+    }
   }
 
   @override
@@ -77,7 +86,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
           ),
           Consumer<Cart>(
             builder: (_, c, ch) => Badge(
-              child: ch,
+              child: ch!,
               value: '${c.itemCount}',
             ),
             child: IconButton(

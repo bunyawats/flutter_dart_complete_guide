@@ -8,7 +8,7 @@ import 'adaptive_button.dart';
 class NewTransactionCard extends StatefulWidget {
   final Function callBack;
 
-  NewTransactionCard({Key key, this.callBack}) : super(key: key);
+  NewTransactionCard({Key? key, required this.callBack}) : super(key: key);
 
   @override
   _NewTransactionCardState createState() => _NewTransactionCardState();
@@ -17,7 +17,7 @@ class NewTransactionCard extends StatefulWidget {
 class _NewTransactionCardState extends State<NewTransactionCard> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
-  DateTime _selectedDate;
+  late DateTime _selectedDate;
 
   void _submitData() {
     if (_amountController.text.isEmpty) {
@@ -43,12 +43,12 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
   }
 
   void _presentDatePicker() async {
-    _selectedDate = await showDatePicker(
+    _selectedDate = (await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2019),
       lastDate: DateTime.now(),
-    );
+    ))!;
     print('$_selectedDate');
     setState(() => _selectedDate = _selectedDate);
   }
@@ -108,7 +108,7 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
                 child: Text('Add Transaction'),
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(
-                    theme.textTheme.button.color,
+                    theme.textTheme.button!.color,
                   ),
                   backgroundColor: MaterialStateProperty.all(
                     theme.primaryColor,

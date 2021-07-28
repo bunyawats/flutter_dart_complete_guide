@@ -6,8 +6,8 @@ class TransactionCard extends StatelessWidget {
   final Transaction transaction;
 
   TransactionCard({
-    this.transaction,
-    Key key,
+    required this.transaction,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -53,7 +53,7 @@ class TransactionCard extends StatelessWidget {
                   padding: EdgeInsets.all(5),
                   child: Text(
                     '${DateFormat.yMMMMd().format(transaction.date)}',
-                    style: theme.textTheme.headline6.copyWith(
+                    style: theme.textTheme.headline6!.copyWith(
                       fontSize: 12,
                     ),
                   ),

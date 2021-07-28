@@ -8,9 +8,9 @@ class TransactionList extends StatelessWidget {
   final Function callBack;
 
   const TransactionList({
-    Key key,
-    this.transactions,
-    this.callBack,
+    Key? key,
+    required this.transactions,
+    required this.callBack,
   }) : super(key: key);
 
   @override

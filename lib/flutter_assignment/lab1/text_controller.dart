@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class TextControl extends StatelessWidget {
-  final Function callBack;
+  final VoidCallback callBack;
 
-  const TextControl({Key key, this.callBack}) : super(key: key);
+  TextControl({Key? key, required this.callBack}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

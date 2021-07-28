@@ -9,9 +9,9 @@ class Quiz extends StatelessWidget {
   final int index;
 
   Quiz({
-    @required this.questionList,
-    @required this.index,
-    @required this.answerQuestion,
+    required this.questionList,
+    required this.index,
+    required this.answerQuestion,
   });
 
   @override
@@ -25,7 +25,7 @@ class Quiz extends StatelessWidget {
           ...(questionList[index]['answers'] as List<Map<String, Object>>)
               .map((_answer) {
             return Answer(
-              answer: _answer['text'],
+              answer: _answer['text'] as String,
               callback: () => answerQuestion(_answer['score']),
             );
           }).toList(),

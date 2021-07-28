@@ -8,15 +8,16 @@ class CategoryMealsScreen extends StatefulWidget {
 
   final List<Meal> availableMeals;
 
-  const CategoryMealsScreen({Key key, this.availableMeals}) : super(key: key);
+  const CategoryMealsScreen({Key? key, required this.availableMeals})
+      : super(key: key);
 
   @override
   _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
 }
 
 class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
-  List<Meal> _displayMeals;
-  String _categoryTitle;
+  late List<Meal> _displayMeals;
+  late String? _categoryTitle;
   var _loadedInitData = false;
 
   @override
@@ -28,7 +29,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   void didChangeDependencies() {
     if (!_loadedInitData) {
       final routeArgs =
-          ModalRoute.of(context).settings.arguments as Map<String, String>;
+          ModalRoute.of(context)!.settings.arguments as Map<String, String>;
 
       _categoryTitle = routeArgs['title'];
       final categoryId = routeArgs['id'];
@@ -44,7 +45,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_categoryTitle),
+        title: Text(_categoryTitle!),
       ),
       body: Center(
         child: ListView.builder(

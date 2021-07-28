@@ -85,9 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _addNewTransaction({
-    String txTitle,
-    double txAmount,
-    DateTime txDate,
+    required String txTitle,
+    required double txAmount,
+    required DateTime txDate,
   }) {
     final newTx = Transaction(
       id: '${DateTime.now()}',
@@ -123,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final PreferredSizeWidget appBar = _buildAdaptiveAppBar(
       context,
       'Personal Expense',
-    );
+    ) as PreferredSizeWidget;
 
     final _availableHeight = mediaQuery.size.height -
         appBar.preferredSize.height -
@@ -140,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Platform.isIOS
         ? CupertinoPageScaffold(
             child: pageBody,
-            navigationBar: appBar,
+            navigationBar: appBar as ObstructingPreferredSizeWidget,
           )
         : Scaffold(
             appBar: appBar,

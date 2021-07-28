@@ -7,10 +7,10 @@ class CartItem {
   final double price;
 
   CartItem({
-    @required this.id,
-    @required this.title,
-    @required this.quantity,
-    @required this.price,
+    required this.id,
+    required this.title,
+    required this.quantity,
+    required this.price,
   });
 }
 
@@ -38,9 +38,9 @@ class Cart with ChangeNotifier {
   }
 
   void addItem({
-    String productId,
-    double price,
-    String title,
+    required String productId,
+    required double price,
+    required String title,
   }) {
     print('productId $productId');
 
@@ -78,7 +78,7 @@ class Cart with ChangeNotifier {
     if (!_items.containsKey(pid)) {
       return;
     }
-    if (_items[pid].quantity > 1) {
+    if (_items[pid]!.quantity > 1) {
       _items.update(
         pid,
         (currentItem) => CartItem(

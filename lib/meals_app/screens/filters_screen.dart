@@ -17,17 +17,17 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-  bool _glutenFree;
-  bool _vegetarian;
-  bool _vegan;
-  bool _lactoseFree;
+  late bool _glutenFree;
+  late bool _vegetarian;
+  late bool _vegan;
+  late bool _lactoseFree;
 
   @override
   void initState() {
-    _glutenFree = widget._currentFilters['gluten'];
-    _vegetarian = widget._currentFilters['vegetarian'];
-    _vegan = widget._currentFilters['vegan'];
-    _lactoseFree = widget._currentFilters['lactose'];
+    _glutenFree = widget._currentFilters['gluten'] ?? false;
+    _vegetarian = widget._currentFilters['vegetarian'] ?? false;
+    _vegan = widget._currentFilters['vegan'] ?? false;
+    _lactoseFree = widget._currentFilters['lactose'] ?? false;
 
     super.initState();
   }
@@ -114,10 +114,10 @@ class _FilterScreenState extends State<FilterScreen> {
   }
 
   SwitchListTile _buildSwitchListTile({
-    String title,
-    String subTitle,
-    bool value,
-    Function updateValue,
+    required String title,
+    required String subTitle,
+    required bool value,
+    required Function(bool) updateValue,
   }) {
     return SwitchListTile(
       value: value,

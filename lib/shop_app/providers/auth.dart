@@ -12,26 +12,26 @@ import 'api_key.dart';
 class Auth with ChangeNotifier {
   static const firebaseHostName = 'identitytoolkit.googleapis.com';
 
-  String _token;
-  DateTime _expiryDate;
-  String _userId;
-  Timer _authTimer;
+  String? _token;
+  DateTime? _expiryDate;
+  String? _userId;
+  Timer? _authTimer;
 
   bool get isAuth {
-    return token != null;
+    return token != "";
   }
 
   String get token {
     if (_expiryDate != null &&
-        _expiryDate.isAfter(DateTime.now()) &&
+        _expiryDate!.isAfter(DateTime.now()) &&
         _token != null) {
-      return _token;
+      return _token ?? "";
     }
-    return null;
+    return "";
   }
 
   String get userId {
-    return _userId;
+    return _userId ?? "";
   }
 
   Future<void> _authenticate(
@@ -74,7 +74,7 @@ class Auth with ChangeNotifier {
       final userData = json.encode({
         'token': _token,
         'userId': _userId,
-        'expiryDate': _expiryDate.toIso8601String(),
+        'expiryDate': _expiryDate!.toIso8601String(),
       });
 
       print('save userdata to shared preference');
@@ -100,28 +100,29 @@ class Auth with ChangeNotifier {
     print('get userdata from shared preference');
 
     if (!prefs.containsKey('userData')) {
-      return false;
+      return;
     }
 
     final userDataString = prefs.getString('userData');
 
     final extractedUserData =
-        json.decode(userDataString) as Map<String, Object>;
-    final expiryDate = DateTime.parse(extractedUserData['expiryDate']);
+        json.decode(userDataString!) as Map<String, Object>;
+    final expiryDate =
+        DateTime.parse(extractedUserData['expiryDate'] as String);
     print('expiryDate: $expiryDate');
 
     if (expiryDate.isBefore(DateTime.now())) {
-      return false;
+      return;
     }
 
-    _token = extractedUserData['token'];
-    _userId = extractedUserData['userId'];
+    _token = extractedUserData['token'] as String;
+    _userId = extractedUserData['userId'] as String;
     _expiryDate = expiryDate;
 
     _autoLogout();
     notifyListeners();
 
-    return true;
+    return;
   }
 
   Future<void> logout() async {
@@ -130,7 +131,7 @@ class Auth with ChangeNotifier {
     _expiryDate = null;
 
     if (_authTimer != null) {
-      _authTimer.cancel();
+      _authTimer!.cancel();
       _authTimer = null;
     }
 
@@ -143,10 +144,10 @@ class Auth with ChangeNotifier {
 
   void _autoLogout() {
     if (_authTimer != null) {
-      _authTimer.cancel();
+      _authTimer!.cancel();
     }
 
-    final timeToExpiry = _expiryDate.difference(DateTime.now()).inSeconds;
+    final timeToExpiry = _expiryDate!.difference(DateTime.now()).inSeconds;
     _authTimer = Timer(Duration(seconds: timeToExpiry), logout);
   }
 }

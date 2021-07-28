@@ -35,7 +35,7 @@ class ShopApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (ctx) => Auth()),
           ChangeNotifierProxyProvider<Auth, ProductList>(
-            create: null,
+            create: (_) => ProductList("", "", []),
             update: (
               ctx,
               auth,
@@ -48,7 +48,7 @@ class ShopApp extends StatelessWidget {
             ),
           ),
           ChangeNotifierProxyProvider<Auth, OrderList>(
-              create: null,
+              create: (_) => OrderList("", "", []),
               update: (
                 ctx,
                 auth,

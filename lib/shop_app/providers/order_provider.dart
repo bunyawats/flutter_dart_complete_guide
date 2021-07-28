@@ -12,10 +12,10 @@ class OrderItem {
   final DateTime dateTime;
 
   OrderItem({
-    this.id,
-    this.amount,
-    this.productList,
-    this.dateTime,
+    required this.id,
+    required this.amount,
+    required this.productList,
+    required this.dateTime,
   });
 }
 

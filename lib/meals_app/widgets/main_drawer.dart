@@ -46,7 +46,11 @@ class MainDrawer extends StatelessWidget {
     );
   }
 
-  ListTile _uildListTile(String text, IconData icon, Function onTapHandler) {
+  ListTile _uildListTile(
+    String text,
+    IconData icon,
+    VoidCallback onTapHandler,
+  ) {
     return ListTile(
       leading: Icon(
         icon,

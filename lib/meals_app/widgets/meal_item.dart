@@ -13,13 +13,13 @@ class MealItem extends StatelessWidget {
 //  final Function removeItem;
 
   const MealItem({
-    Key key,
-    @required this.id,
-    @required this.title,
-    @required this.imageUrl,
-    @required this.duration,
-    @required this.complexity,
-    @required this.affordability,
+    Key? key,
+    required this.id,
+    required this.title,
+    required this.imageUrl,
+    required this.duration,
+    required this.complexity,
+    required this.affordability,
     //  @required this.removeItem,
   }) : super(key: key);
 

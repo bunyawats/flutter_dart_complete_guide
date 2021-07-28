@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
-  final Function resetQuiz;
+  final VoidCallback resetQuiz;
 
   const Result({
-    Key key,
-    this.resultScore,
-    this.resetQuiz,
+    Key? key,
+    required this.resultScore,
+    required this.resetQuiz,
   }) : super(key: key);
 
   String get resultPhase {

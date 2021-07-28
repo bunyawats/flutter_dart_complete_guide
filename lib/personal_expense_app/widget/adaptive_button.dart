@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class AdaptiveButton extends StatelessWidget {
-  final Function _presentDatePicker;
+  final VoidCallback _presentDatePicker;
   final String _title;
 
-  const AdaptiveButton({Key key, presentDatePicker, title})
+  const AdaptiveButton({Key? key, presentDatePicker, title})
       : _presentDatePicker = presentDatePicker,
         _title = title,
         super(key: key);

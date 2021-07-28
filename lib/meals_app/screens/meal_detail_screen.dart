@@ -8,12 +8,15 @@ class MeralDetailScreen extends StatelessWidget {
   final Function toggleFavorite;
   final Function isMealFavorite;
 
-  const MeralDetailScreen({Key key, this.toggleFavorite, this.isMealFavorite})
-      : super(key: key);
+  const MeralDetailScreen({
+    Key? key,
+    required this.toggleFavorite,
+    required this.isMealFavorite,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final mealId = ModalRoute.of(context).settings.arguments;
+    final mealId = ModalRoute.of(context)!.settings.arguments;
     final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == mealId);
 
     return Scaffold(

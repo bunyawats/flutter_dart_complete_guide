@@ -7,11 +7,11 @@ import '../model/transaction.dart';
 
 class TransactionItem extends StatefulWidget {
   const TransactionItem({
-    Key key,
-    @required this.currentTx,
-    @required this.theme,
-    @required this.mediaQuery,
-    @required this.callBack,
+    Key? key,
+    required this.currentTx,
+    required this.theme,
+    required this.mediaQuery,
+    required this.callBack,
   }) : super(key: key);
 
   final Transaction currentTx;
@@ -24,7 +24,7 @@ class TransactionItem extends StatefulWidget {
 }
 
 class _TransactionItemState extends State<TransactionItem> {
-  Color _bgColor;
+  late Color _bgColor;
 
   @override
   void initState() {

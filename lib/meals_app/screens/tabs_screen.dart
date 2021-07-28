@@ -10,14 +10,14 @@ class TabScreen extends StatefulWidget {
 
   final List<Meal> favoriteMeals;
 
-  const TabScreen({Key key, this.favoriteMeals}) : super(key: key);
+  const TabScreen({Key? key, required this.favoriteMeals}) : super(key: key);
 
   @override
   _TabScreenState createState() => _TabScreenState();
 }
 
 class _TabScreenState extends State<TabScreen> {
-  List<Map<String, Object>> _pages;
+  late List<Map<String, Object>> _pages;
   int _selectPageIndex = 0;
 
   @override

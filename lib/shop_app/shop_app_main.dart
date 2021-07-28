@@ -13,6 +13,7 @@ import 'screens/product_detail_screen.dart';
 import 'screens/product_overview_screen.dart';
 import 'screens/user_product_screen.dart';
 import 'screens/splash_screen.dart';
+import 'helpers/custom_route.dart';
 
 void main() => runApp(ShopApp());
 
@@ -22,6 +23,12 @@ class ShopApp extends StatelessWidget {
     final ThemeData theme = ThemeData(
       primarySwatch: Colors.purple,
       fontFamily: 'Lato',
+      pageTransitionsTheme: PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: CustomPageTransitionsBuilder(),
+          TargetPlatform.iOS: CustomPageTransitionsBuilder(),
+        },
+      ),
     );
 
     return MultiProvider(

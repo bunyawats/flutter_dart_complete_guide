@@ -32,6 +32,10 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
 
   @override
   void didChangeDependencies() async {
+    if (!this.mounted) {
+      return;
+    }
+
     if (_isInit) {
       setState(() {
         _isLoading = true;

@@ -41,42 +41,46 @@ class _OrderLineItemState extends State<OrderLineItem> {
               },
             ),
           ),
-          if (_expanded)
-            Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 4,
-              ),
-              height: min(
-                widget.order.productList.length * 20.0 + 10,
-                100,
-              ),
-              child: ListView.builder(
-                itemBuilder: (ctx, index) {
-                  final cartItem = widget.order.productList[index];
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(
-                        cartItem.title,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
+          //if (_expanded)
+          AnimatedContainer(
+            duration: Duration(milliseconds: 300),
+            curve: Curves.easeIn,
+            height: _expanded
+                ? min(
+                    widget.order.productList.length * 20.0 + 10,
+                    100,
+                  )
+                : 0,
+            padding: EdgeInsets.symmetric(
+              horizontal: 15,
+              vertical: 4,
+            ),
+            child: ListView.builder(
+              itemBuilder: (ctx, index) {
+                final cartItem = widget.order.productList[index];
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      cartItem.title,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
-                      Text(
-                        '${cartItem.quantity}x \$${cartItem.price}',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
-                        ),
+                    ),
+                    Text(
+                      '${cartItem.quantity}x \$${cartItem.price}',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.grey,
                       ),
-                    ],
-                  );
-                },
-                itemCount: widget.order.productList.length,
-              ),
-            )
+                    ),
+                  ],
+                );
+              },
+              itemCount: widget.order.productList.length,
+            ),
+          )
         ],
       ),
     );

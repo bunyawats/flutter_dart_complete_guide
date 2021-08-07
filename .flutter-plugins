@@ -2,6 +2,8 @@
 flutter_plugin_android_lifecycle=/Users/bunyawatsingchai/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.2/
 image_picker=/Users/bunyawatsingchai/.pub-cache/hosted/pub.dartlang.org/image_picker-0.8.3+1/
 image_picker_for_web=/Users/bunyawatsingchai/.pub-cache/hosted/pub.dartlang.org/image_picker_for_web-2.1.2/
+location=/Users/bunyawatsingchai/.pub-cache/hosted/pub.dartlang.org/location-4.3.0/
+location_web=/Users/bunyawatsingchai/.pub-cache/hosted/pub.dartlang.org/location_web-3.1.1/
 path_provider=/Users/bunyawatsingchai/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.2/
 path_provider_linux=/Users/bunyawatsingchai/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.2/
 path_provider_macos=/Users/bunyawatsingchai/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.2/

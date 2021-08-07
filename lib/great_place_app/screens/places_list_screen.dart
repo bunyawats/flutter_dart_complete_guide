@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../providers/great_places_provider.dart';
 import 'add_place_screen.dart';
 
 class PlacesListScreen extends StatelessWidget {
@@ -8,19 +10,38 @@ class PlacesListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Yoy Place'),
-          actions: <Widget>[
-            IconButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(AddPlaceScreen.routeName);
-              },
-              icon: Icon(Icons.add),
-            )
-          ],
+      appBar: AppBar(
+        title: Text('Yoy Place'),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(AddPlaceScreen.routeName);
+            },
+            icon: Icon(Icons.add),
+          )
+        ],
+      ),
+      body: Consumer<GreatPlaceProvider>(
+        child: Center(
+          child: const Text('Got no places yet, start adding some!'),
         ),
-        body: Center(
-          child: CircularProgressIndicator(),
-        ));
+        builder: (ctx, greatPlaces, ch) => greatPlaces.items.length == 0
+            ? ch!
+            : ListView.builder(
+                itemCount: greatPlaces.items.length,
+                itemBuilder: (ctx, index) {
+                  final place = greatPlaces.items[index];
+
+                  return ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage: FileImage(place.image),
+                    ),
+                    title: Text(place.title),
+                    onTap: () {},
+                  );
+                },
+              ),
+      ),
+    );
   }
 }

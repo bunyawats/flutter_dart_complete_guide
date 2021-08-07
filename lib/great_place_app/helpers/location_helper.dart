@@ -12,7 +12,7 @@ class LocationHelper {
       '/maps/api/staticmap',
       {
         'key': GOOGLE_API_KEY,
-        'center':'$latitude,$longitude',
+        'center': '$latitude,$longitude',
         'zoom': '13',
         'size': '600x300',
         'maptype': 'roadmap',

@@ -21,3 +21,5 @@ doc/api/
 *.js.map
 lib/shop_app/providers/api_key.dart
 lib/great_place_app/helpers/api_key.dart
+android/app/src/main/AndroidManifest.xml
+

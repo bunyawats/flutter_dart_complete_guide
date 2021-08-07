@@ -1,6 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'dart:math';
 
 import '../providers/order_provider.dart';
 
@@ -47,9 +48,9 @@ class _OrderLineItemState extends State<OrderLineItem> {
             curve: Curves.easeIn,
             height: _expanded
                 ? min(
-                    widget.order.productList.length * 20.0 + 10,
-                    100,
-                  )
+              widget.order.productList.length * 20.0 + 10,
+              100,
+            )
                 : 0,
             padding: EdgeInsets.symmetric(
               horizontal: 15,

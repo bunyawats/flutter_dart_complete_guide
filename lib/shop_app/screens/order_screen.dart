@@ -14,6 +14,7 @@ class OrderScreen extends StatefulWidget {
 
 class _OrderScreenState extends State<OrderScreen> {
   late Future _orderFuture;
+
   Future _obtainOrderFuture() {
     return Provider.of<OrderList>(
       context,

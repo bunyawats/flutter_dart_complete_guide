@@ -38,18 +38,17 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
 
   @override
   void didChangeDependencies() async {
-
     try {
       if (_isInit) {
-            setState(() {
-              _isLoading = true;
-            });
-            final _productData = Provider.of<ProductList>(context);
-            await _productData.fetchAndSetProducts();
-            setState(() {
-              _isLoading = false;
-            });
-          }
+        setState(() {
+          _isLoading = true;
+        });
+        final _productData = Provider.of<ProductList>(context);
+        await _productData.fetchAndSetProducts();
+        setState(() {
+          _isLoading = false;
+        });
+      }
       _isInit = false;
       super.didChangeDependencies();
     } catch (e) {

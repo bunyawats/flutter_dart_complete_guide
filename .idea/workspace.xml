@@ -5,19 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/great_place_app/great_place_app_main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/great_place_app/models/place.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/great_place_app/models/place_location.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/great_place_app/providers/graat_places_provider.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/great_place_app/screens/add_place_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/great_place_app/screens/place_detail_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/great_place_app/screens/places_list_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/great_place_app/widgets/image_input.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/place_list_app/screens/add_place_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/place_list_app/screens/place_detail_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/place_list_app/screens/place_list_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_assignment/lab1/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_assignment/lab1/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/great_place_app/great_place_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/great_place_app/great_place_app_main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/great_place_app/providers/graat_places_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/great_place_app/providers/graat_places_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/great_place_app/screens/add_place_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/great_place_app/screens/add_place_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/great_place_app/screens/place_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/great_place_app/screens/place_detail_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/great_place_app/screens/places_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/great_place_app/screens/places_list_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/meals_app/models/meal.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/models/meal.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/meals_app/widgets/category_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/widgets/category_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/meals_app/widgets/meal_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/meals_app/widgets/meal_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/model/transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/model/transaction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/widget/adaptive_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/adaptive_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/providers/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/providers/auth.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/auth_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/order_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/order_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/product_overview_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/shop_app_main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/app_drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/app_drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/order_line_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/order_line_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/widgets/product_item.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

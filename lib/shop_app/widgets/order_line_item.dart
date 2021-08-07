@@ -48,9 +48,9 @@ class _OrderLineItemState extends State<OrderLineItem> {
             curve: Curves.easeIn,
             height: _expanded
                 ? min(
-              widget.order.productList.length * 20.0 + 10,
-              100,
-            )
+                    widget.order.productList.length * 20.0 + 10,
+                    100,
+                  )
                 : 0,
             padding: EdgeInsets.symmetric(
               horizontal: 15,

@@ -85,7 +85,8 @@ class ProductList with ChangeNotifier {
       );
 
       final response = await http.get(url);
-      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      dynamic extractedData =
+          json.decode(response.body) as Map<String, dynamic>;
       // print('response: $extractedData');
       if (extractedData == null) {
         return;

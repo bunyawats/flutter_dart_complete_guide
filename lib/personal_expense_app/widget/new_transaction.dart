@@ -17,7 +17,7 @@ class NewTransactionCard extends StatefulWidget {
 class _NewTransactionCardState extends State<NewTransactionCard> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
-  late DateTime _selectedDate;
+  DateTime? _selectedDate;
 
   void _submitData() {
     if (_amountController.text.isEmpty) {
@@ -93,7 +93,7 @@ class _NewTransactionCardState extends State<NewTransactionCard> {
                   children: <Widget>[
                     Expanded(
                       child: Text(_selectedDate != null
-                          ? 'Picked date: ${DateFormat.yMd().format(_selectedDate)}'
+                          ? 'Picked date: ${DateFormat.yMd().format(_selectedDate!)}'
                           : 'No Date Chosen!'),
                     ),
                     AdaptiveButton(

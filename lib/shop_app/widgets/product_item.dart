@@ -35,7 +35,7 @@ class ProductItem extends StatelessWidget {
             );
           },
           child: Hero(
-            tag: product.id,
+            tag: product.id!,
             child: FadeInImage(
               placeholder: AssetImage("assets/images/product-placeholder.png"),
               image: NetworkImage(product.imageUrl),
@@ -75,7 +75,7 @@ class ProductItem extends StatelessWidget {
               icon: Icon(Icons.shopping_cart),
               onPressed: () {
                 c.addItem(
-                  productId: product.id,
+                  productId: product.id!,
                   price: product.price,
                   title: product.title,
                 );
@@ -87,7 +87,7 @@ class ProductItem extends StatelessWidget {
                     action: SnackBarAction(
                       label: 'Undo',
                       onPressed: () {
-                        cart.removeSingleItem(product.id);
+                        cart.removeSingleItem(product.id!);
                       },
                     ),
                   ),

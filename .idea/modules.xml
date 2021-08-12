@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/flutter_dart_complete_guide.iml" filepath="$PROJECT_DIR$/flutter_dart_complete_guide.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/flutter_dart_complete_guide_android.iml" filepath="$PROJECT_DIR$/android/flutter_dart_complete_guide_android.iml" />
     </modules>
   </component>
 </project>

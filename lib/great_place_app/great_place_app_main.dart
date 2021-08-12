@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'providers/great_places_provider.dart';
 import 'screens/add_place_screen.dart';
+import 'screens/place_detail_screen.dart';
 import 'screens/places_list_screen.dart';
 
 void main() => runApp(GreatPlaceApp());
@@ -26,6 +27,7 @@ class GreatPlaceApp extends StatelessWidget {
         home: PlacesListScreen(),
         routes: {
           AddPlaceScreen.routeName: (ctx) => AddPlaceScreen(),
+          PlaceDetailScreen.routeName: (ctx) => PlaceDetailScreen(),
         },
       ),
     );

@@ -30,6 +30,17 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   @override
+  void initState() {
+    if (!widget.isSelecting) {
+      _pickedLocation = LatLng(
+        widget.initialLocation.latitude,
+        widget.initialLocation.longitude,
+      );
+    }
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

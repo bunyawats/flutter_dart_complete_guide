@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/great_places_provider.dart';
 import 'add_place_screen.dart';
+import 'place_detail_screen.dart';
 
 class PlacesListScreen extends StatelessWidget {
   const PlacesListScreen({Key? key}) : super(key: key);
@@ -51,7 +52,12 @@ class PlacesListScreen extends StatelessWidget {
                                     ),
                                     title: Text(place.title),
                                     subtitle: Text(place.location.address),
-                                    onTap: () {},
+                                    onTap: () {
+                                      Navigator.of(context).pushNamed(
+                                        PlaceDetailScreen.routeName,
+                                        arguments: place.id,
+                                      );
+                                    },
                                   );
                                 },
                               ),

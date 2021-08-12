@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 class ChatScreen extends StatelessWidget {
   static const routeName = '/chat';
 
+  static const collection_name = '/chats/kNXm2wWvslN6OuRijeYY/messages';
+
   const ChatScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final _stream = FirebaseFirestore.instance
-        .collection('/chats/kNXm2wWvslN6OuRijeYY/messages')
-        .snapshots();
+    final _stream =
+        FirebaseFirestore.instance.collection(collection_name).snapshots();
     return Scaffold(
       appBar: AppBar(
         title: Text('Chat Screen'),
@@ -38,19 +39,13 @@ class ChatScreen extends StatelessWidget {
               },
             );
           }),
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.add),
-      //   onPressed: () {
-      //     FirebaseFirestore.instance
-      //         .collection('/chats/kNXm2wWvslN6OuRijeYY/messages')
-      //         .snapshots()
-      //         .listen((data) {
-      //       data.docs.forEach((document) {
-      //         print(document['text']);
-      //       });
-      //     });
-      //   },
-      // ),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            FirebaseFirestore.instance.collection(collection_name).add({
+              'text': 'This was addes by click the button',
+            });
+          }),
     );
   }
 }

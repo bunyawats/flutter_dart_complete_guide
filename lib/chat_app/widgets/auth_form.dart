@@ -30,9 +30,9 @@ class _AuthFormState extends State<AuthForm> {
     if (_formKey.currentState?.validate() ?? false) {
       _formKey.currentState?.save();
       widget.onSummit(
-        _email,
-        _password,
-        _userName,
+        _email.trim(),
+        _password.trim(),
+        _userName.trim(),
         _isLogin,
       );
     }

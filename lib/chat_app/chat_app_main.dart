@@ -32,7 +32,7 @@ class ChatApp extends StatelessWidget {
       theme: themeData.copyWith(
         colorScheme: themeData.colorScheme.copyWith(secondary: Colors.amber),
       ),
-      home: ChatScreen(),
+      home: AuthScreen(),
       routes: {
         ChatScreen.routeName: (ctx) => ChatScreen(),
         AuthScreen.routeName: (ctx) => AuthScreen(),

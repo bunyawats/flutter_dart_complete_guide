@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/place_location.dart';
 import '../providers/great_places_provider.dart';
 import '../widgets/image_input.dart';
 import '../widgets/location_input.dart';
@@ -18,27 +19,35 @@ class AddPlaceScreen extends StatefulWidget {
 
 class _AddPlaceScreenState extends State<AddPlaceScreen> {
   final _titleController = TextEditingController();
-
   File? _pickedImage;
+  PlaceLocation? _pickedLocation;
 
   void _selectImage(File pickedImage) {
     _pickedImage = pickedImage;
   }
 
-  void _savePlace() {
-    if (_titleController.text.isEmpty || _pickedImage == null) {
-      //TODO Show Dialog
-      return;
-    }
-    final greatPlaceProvider =
-        Provider.of<GreatPlaceProvider>(context, listen: false);
-
-    greatPlaceProvider.addPlace(
-      _titleController.text,
-      _pickedImage!,
+  void _selectPlace(double latitude, double longitude) {
+    _pickedLocation = PlaceLocation(
+      latitude: latitude,
+      longitude: longitude,
     );
+  }
 
-    Navigator.of(context).pop();
+  void _savePlace() {
+    if (_titleController.text.isNotEmpty &&
+        _pickedImage != null &&
+        _pickedLocation != null) {
+      final greatPlaceProvider =
+          Provider.of<GreatPlaceProvider>(context, listen: false);
+
+      greatPlaceProvider.addPlace(
+        _titleController.text,
+        _pickedImage!,
+        _pickedLocation!,
+      );
+
+      Navigator.of(context).pop();
+    }
   }
 
   @override
@@ -67,7 +76,7 @@ class _AddPlaceScreenState extends State<AddPlaceScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  LocationInput(),
+                  LocationInput(_selectPlace),
                 ],
               ),
             ),

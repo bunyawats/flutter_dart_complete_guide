@@ -13,7 +13,10 @@ class DbHelper {
         CREATE TABLE $places_table(
           id TEXT PRIMARY KEY,
           title TEXT,
-          image TEXT
+          image TEXT,
+          loc_lat REAL,
+          loc_lng REAL,
+          address TEXT
         )
       """;
       return db.execute(sql);

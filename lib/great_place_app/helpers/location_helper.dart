@@ -1,12 +1,16 @@
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+
 import 'api_key.dart';
 
 class LocationHelper {
+  static const firebaseHostName = 'maps.googleapis.com';
+
   static String genLocationPreviewImage({
     required double latitude,
     required double longitude,
   }) {
-    const firebaseHostName = 'maps.googleapis.com';
-
     final url = Uri.https(
       firebaseHostName,
       '/maps/api/staticmap',
@@ -21,6 +25,24 @@ class LocationHelper {
     );
     return url.toString();
   }
-}
 
-//markers=color:red%7Clabel:G%7C13.7189819,100.8639551
+  static Future<String> getPlaceAddress(
+      double latitude, double longitude) async {
+    final url = Uri.https(
+      firebaseHostName,
+      '/maps/api/geocode/json',
+      {
+        'key': GOOGLE_API_KEY,
+        'latlng': '$latitude,$longitude',
+      },
+    );
+    print('url : $url');
+
+    final response = await http.get(url);
+    String address =
+        json.decode(response.body)['results'][0]['formatted_address'];
+    print('address : $address');
+
+    return address;
+  }
+}

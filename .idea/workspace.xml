@@ -10,10 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/chat_app/chat_app_main.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chat_app/screens/auth_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chat_app/screens/chat_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/app/google-services.json.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,7 +56,7 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app/src/main" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -67,18 +65,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android/app" />
       <recent name="$PROJECT_DIR$/android/app/src/main" />
       <recent name="$PROJECT_DIR$/lib/great_place_app/helpers" />
       <recent name="$PROJECT_DIR$/lib/shop_app/providers" />
       <recent name="$PROJECT_DIR$/lib/shop_app/screens" />
-      <recent name="$PROJECT_DIR$/assets/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android/app" />
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/lib/shop_app/screens" />
       <recent name="$PROJECT_DIR$/lib/shop_app/widgets" />
       <recent name="$PROJECT_DIR$/lib/shop_app/providers" />
-      <recent name="$PROJECT_DIR$/assets/fonts" />
     </key>
   </component>
   <component name="RunManager" selected="Flutter.chat_app_main.dart">

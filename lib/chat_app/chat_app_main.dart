@@ -1,20 +1,12 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/auth_screen.dart';
 import 'screens/chat_screen.dart';
 
-/// Requires that a Firestore emulator is running locally.
-/// See https://firebase.flutter.dev/docs/firestore/usage#emulator-usage
-bool USE_FIRESTORE_EMULATOR = false;
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  if (USE_FIRESTORE_EMULATOR) {
-    FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
-  }
   runApp(ChatApp());
 }
 
@@ -24,13 +16,30 @@ class ChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = ThemeData(
-      primarySwatch: Colors.indigo,
+      primarySwatch: Colors.pink,
+      backgroundColor: Colors.pink,
+      buttonTheme: ButtonTheme.of(context).copyWith(
+        buttonColor: Colors.pink,
+        textTheme: ButtonTextTheme.primary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          shape: new RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(20.0),
+          ),
+        ),
+      ),
     );
 
     return MaterialApp(
       title: 'Chat App',
       theme: themeData.copyWith(
-        colorScheme: themeData.colorScheme.copyWith(secondary: Colors.amber),
+        colorScheme: themeData.colorScheme.copyWith(
+          secondary: Colors.deepPurple,
+        ),
       ),
       home: AuthScreen(),
       routes: {

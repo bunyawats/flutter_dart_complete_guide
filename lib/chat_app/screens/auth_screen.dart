@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../widgets/auth_form.dart';
 
@@ -15,22 +15,25 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   final _auth = FirebaseAuth.instance;
+  var _isLoading = false;
 
   void _submitAuthForm(
     String email,
     String password,
-    String userName,
+    String username,
     bool isLogin,
   ) async {
-
     print(email);
-    print(userName);
+    print(username);
     print(password);
     print(isLogin);
 
     UserCredential authResult;
 
     try {
+      setState(() {
+        _isLoading = true;
+      });
       if (isLogin) {
         authResult = await _auth.signInWithEmailAndPassword(
           email: email,
@@ -41,6 +44,15 @@ class _AuthScreenState extends State<AuthScreen> {
           email: email,
           password: password,
         );
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(authResult.user!.uid)
+            .set(
+          {
+            'username': username,
+            'email': email,
+          },
+        );
       }
     } on FirebaseAuthException catch (e) {
       print('exception: $e');
@@ -49,12 +61,19 @@ class _AuthScreenState extends State<AuthScreen> {
       message = e.message ?? message;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(message, textAlign: TextAlign.center,),
+          content: Text(
+            message,
+            textAlign: TextAlign.center,
+          ),
           backgroundColor: Theme.of(context).errorColor,
         ),
       );
     } catch (e) {
       print('exception: $e');
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
     }
   }
 
@@ -62,7 +81,7 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: AuthForm(_submitAuthForm),
+      body: AuthForm(_submitAuthForm, _isLoading),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class NewMessage extends StatefulWidget {
@@ -14,6 +15,8 @@ class _NewMessageState extends State<NewMessage> {
   final _textController = TextEditingController();
 
   var _enterMessage = '';
+
+  final _auth = FirebaseAuth.instance;
   final _fireStore = FirebaseFirestore.instance;
 
   void _sendMessage() {

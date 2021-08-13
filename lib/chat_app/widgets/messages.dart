@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import 'message_bubble.dart';
+
 class Messages extends StatelessWidget {
   const Messages({Key? key}) : super(key: key);
 
@@ -33,7 +35,7 @@ class Messages extends StatelessWidget {
             itemCount: docs.length,
             itemBuilder: (ctx, index) {
               final _message = docs[index];
-              return Text(_message['text']);
+              return MessageBubble(_message['text']);
             },
           );
         });

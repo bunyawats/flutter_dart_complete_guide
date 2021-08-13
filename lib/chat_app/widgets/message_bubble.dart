@@ -6,11 +6,11 @@ class MessageBubble extends StatelessWidget {
 
   final String message;
   final bool isMe;
-  final String userId;
+  final String username;
 
   const MessageBubble(
     this.message,
-    this.userId,
+    this.username,
     this.isMe, {
     Key? key,
   }) : super(key: key);
@@ -42,30 +42,15 @@ class MessageBubble extends StatelessWidget {
             crossAxisAlignment:
                 isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
             children: <Widget>[
-              FutureBuilder<DocumentSnapshot>(
-                  future: _users.doc(userId).get(),
-                  builder: (context, snapshot) {
-                    if (snapshot.hasError) {
-                      return Text("Something went wrong");
-                    }
-                    if (snapshot.hasData && !snapshot.data!.exists) {
-                      return Text("User name does not exist");
-                    }
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Text("Loading...");
-                    }
-
-                    var data = snapshot.data!.data() as Map<String, dynamic>;
-                    return Text(
-                      data['username'],
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
-                            color: isMe
-                                ? Colors.black
-                                : Theme.of(context).colorScheme.onSecondary,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    );
-                  }),
+              Text(
+                username,
+                style: Theme.of(context).textTheme.headline6!.copyWith(
+                      color: isMe
+                          ? Colors.black
+                          : Theme.of(context).colorScheme.onSecondary,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
               Text(
                 message,
                 style: Theme.of(context).textTheme.headline6!.copyWith(

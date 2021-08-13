@@ -14,6 +14,8 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  static const users_collection = 'users';
+
   final _auth = FirebaseAuth.instance;
   final _fireStore = FirebaseFirestore.instance;
 
@@ -23,8 +25,7 @@ class _AuthScreenState extends State<AuthScreen> {
     String email,
     String password,
     String username,
-    bool isLogin,
-  ) async {
+    bool isLogin,) async {
     print(email);
     print(username);
     print(password);
@@ -46,7 +47,10 @@ class _AuthScreenState extends State<AuthScreen> {
           email: email,
           password: password,
         );
-        await _fireStore.collection('users').doc(authResult.user!.uid).set(
+        await _fireStore
+            .collection(users_collection)
+            .doc(authResult.user!.uid)
+            .set(
           {
             'username': username,
             'email': email,

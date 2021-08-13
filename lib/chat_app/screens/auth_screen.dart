@@ -25,7 +25,8 @@ class _AuthScreenState extends State<AuthScreen> {
     String email,
     String password,
     String username,
-    bool isLogin,) async {
+    bool isLogin,
+  ) async {
     print(email);
     print(username);
     print(password);

@@ -1,6 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Messages extends StatelessWidget {
@@ -10,11 +8,16 @@ class Messages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final _auth = FirebaseAuth.instance;
     final _fireStore = FirebaseFirestore.instance;
 
     return StreamBuilder<QuerySnapshot>(
-        stream: _fireStore.collection(chat_collection).snapshots(),
+        stream: _fireStore
+            .collection(chat_collection)
+            .orderBy(
+              'createAt',
+              descending: true,
+            )
+            .snapshots(),
         builder: (ctx, snapshot) {
           if (snapshot.hasError) {
             return Center(
@@ -26,6 +29,7 @@ class Messages extends StatelessWidget {
           }
           final docs = snapshot.requireData.docs;
           return ListView.builder(
+            reverse: true,
             itemCount: docs.length,
             itemBuilder: (ctx, index) {
               final _message = docs[index];

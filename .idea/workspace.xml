@@ -10,11 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/chat_app/readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chat_app/widgets/messages.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chat_app/widgets/new_message.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/chat_app/screens/auth_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/screens/auth_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/chat_app/screens/chat_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/screens/chat_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chat_app/widgets/messages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/widgets/messages.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +56,7 @@
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
     <property name="project.structure.last.edited" value="Modules" />

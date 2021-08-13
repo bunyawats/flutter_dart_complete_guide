@@ -1,7 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_dart_complete_guide/chat_app/widgets/messages.dart';
+
+import '../widgets/messages.dart';
+import '../widgets/new_message.dart';
 
 class ChatScreen extends StatelessWidget {
   static const routeName = '/chat';
@@ -12,7 +13,6 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _fireStore = FirebaseFirestore.instance;
     final _auth = FirebaseAuth.instance;
 
     return Scaffold(
@@ -52,16 +52,10 @@ class ChatScreen extends StatelessWidget {
             Expanded(
               child: Messages(),
             ),
+            NewMessage(),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            _fireStore.collection(chat_collection).add({
-              'text': 'This was addes by click the button',
-            });
-          }),
     );
   }
 }

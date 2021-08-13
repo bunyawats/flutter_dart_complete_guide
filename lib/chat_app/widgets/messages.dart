@@ -40,6 +40,7 @@ class Messages extends StatelessWidget {
             final _message = docs[index];
             return MessageBubble(
               _message['text'],
+              _message['userId'],
               _message['userId'] == user?.uid,
               key: ValueKey(_message.id),
             );

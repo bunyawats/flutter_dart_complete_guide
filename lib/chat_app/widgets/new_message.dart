@@ -11,6 +11,7 @@ class NewMessage extends StatefulWidget {
 
 class _NewMessageState extends State<NewMessage> {
   static const chat_collection = 'chat';
+  static const users_collection = 'users';
 
   final _textController = TextEditingController();
 
@@ -23,10 +24,16 @@ class _NewMessageState extends State<NewMessage> {
     FocusScope.of(context).unfocus();
 
     final user = _auth.currentUser;
+    final snapshot =
+        await _fireStore.collection(users_collection).doc(user?.uid).get();
+    final userData = snapshot.data();
+    print('userData: $userData');
+
     _fireStore.collection(chat_collection).add({
       'text': _enterMessage,
       'createAt': Timestamp.now(),
       if (user != null) 'userId': user.uid,
+      if (userData != null) 'username': userData['username'],
     });
     _textController.clear();
   }

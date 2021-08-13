@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +35,8 @@ class ChatApp extends StatelessWidget {
       ),
     );
 
+    final _auth = FirebaseAuth.instance;
+
     return MaterialApp(
       title: 'Chat App',
       theme: themeData.copyWith(
@@ -41,7 +44,15 @@ class ChatApp extends StatelessWidget {
           secondary: Colors.deepPurple,
         ),
       ),
-      home: AuthScreen(),
+      home: StreamBuilder(
+          stream: _auth.authStateChanges(),
+          builder: (ctx, snapshot) {
+            if (snapshot.hasData) {
+              return ChatScreen();
+            } else {
+              return AuthScreen();
+            }
+          }),
       routes: {
         ChatScreen.routeName: (ctx) => ChatScreen(),
         AuthScreen.routeName: (ctx) => AuthScreen(),

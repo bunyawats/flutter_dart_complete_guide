@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
@@ -10,14 +11,42 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _stream =
-        FirebaseFirestore.instance.collection(collection_name).snapshots();
+    final _fireStore = FirebaseFirestore.instance;
+    final _auth = FirebaseAuth.instance;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Chat Screen'),
+        actions: <Widget>[
+          DropdownButton(
+            icon: Icon(
+              Icons.more_vert,
+              color: Theme.of(context).primaryIconTheme.color,
+            ),
+            items: [
+              DropdownMenuItem(
+                child: Container(
+                  child: Row(
+                    children: <Widget>[
+                      Icon(Icons.exit_to_app),
+                      SizedBox(width: 8),
+                      Text('Logout'),
+                    ],
+                  ),
+                ),
+                value: 'logout',
+              ),
+            ],
+            onChanged: (itemIdentifier) {
+              if (itemIdentifier == 'logout') {
+                _auth.signOut();
+              }
+            },
+          ),
+        ],
       ),
       body: StreamBuilder<QuerySnapshot>(
-          stream: _stream,
+          stream: _fireStore.collection(collection_name).snapshots(),
           builder: (ctx, snapshot) {
             if (snapshot.hasError) {
               return Center(
@@ -42,7 +71,7 @@ class ChatScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            FirebaseFirestore.instance.collection(collection_name).add({
+            _fireStore.collection(collection_name).add({
               'text': 'This was addes by click the button',
             });
           }),

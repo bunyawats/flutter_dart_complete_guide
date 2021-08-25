@@ -34,6 +34,7 @@ class _NewMessageState extends State<NewMessage> {
       'createAt': Timestamp.now(),
       if (user != null) 'userId': user.uid,
       if (userData != null) 'username': userData['username'],
+      if (userData != null) 'userImage': userData['image_url'],
     });
     _textController.clear();
   }

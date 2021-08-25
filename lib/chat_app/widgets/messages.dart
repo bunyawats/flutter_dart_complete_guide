@@ -41,6 +41,7 @@ class Messages extends StatelessWidget {
             return MessageBubble(
               _message['text'],
               _message['username'],
+              _message['userImage'],
               _message['userId'] == user?.uid,
               key: ValueKey(_message.id),
             );

@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -19,7 +19,6 @@ class MessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _fireStore = FirebaseFirestore.instance;
 
     return Stack(
       children: [

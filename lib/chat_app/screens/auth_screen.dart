@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/auth_form.dart';
@@ -18,6 +21,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   final _auth = FirebaseAuth.instance;
   final _fireStore = FirebaseFirestore.instance;
+  final _fireStorage = FirebaseStorage.instance;
 
   var _isLoading = false;
 
@@ -25,6 +29,7 @@ class _AuthScreenState extends State<AuthScreen> {
     String email,
     String password,
     String username,
+    File? userImage,
     bool isLogin,
   ) async {
     print(email);
@@ -48,6 +53,20 @@ class _AuthScreenState extends State<AuthScreen> {
           email: email,
           password: password,
         );
+
+        if (userImage != null) {
+          final ref = _fireStorage
+              .ref()
+              .child('user_image')
+              .child('${authResult.user!.uid}.png');
+
+          final metadata = SettableMetadata(
+              contentType: 'image/png',
+              customMetadata: {'picked-file-path': userImage.path});
+
+          await ref.putFile(userImage, metadata);
+        }
+
         await _fireStore
             .collection(users_collection)
             .doc(authResult.user!.uid)

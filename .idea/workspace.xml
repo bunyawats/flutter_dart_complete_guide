@@ -10,15 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/chat_app/widgets/message_bubble.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/widgets/message_bubble.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chat_app/widgets/messages.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/widgets/messages.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chat_app/widgets/user_image_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chat_app/widgets/auth_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/widgets/auth_form.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[bf141504]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/bunyawatsingchai/.android/avd/Pixel_5_API_29.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -59,7 +61,7 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.08355438" />
     <property name="project.structure.side.proportion" value="0.17038006" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -102,10 +104,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Flutter.chat_app_main.dart" />
-        <item itemvalue="Flutter.shop_app_main.dart" />
-        <item itemvalue="Flutter.great_place_app_main.dart" />
-        <item itemvalue="Flutter.personal_expense_app_main.dart" />
-        <item itemvalue="Flutter.meals_app_main.dart" />
       </list>
     </recent_temporary>
   </component>

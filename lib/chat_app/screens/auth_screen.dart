@@ -65,17 +65,22 @@ class _AuthScreenState extends State<AuthScreen> {
               customMetadata: {'picked-file-path': userImage.path});
 
           await ref.putFile(userImage, metadata);
-        }
 
-        await _fireStore
-            .collection(users_collection)
-            .doc(authResult.user!.uid)
-            .set(
-          {
-            'username': username,
-            'email': email,
-          },
-        );
+          final url = await ref.getDownloadURL();
+          print('image url : $url');
+          print('user id : ${authResult.user!.uid}');
+
+          await _fireStore
+              .collection(users_collection)
+              .doc(authResult.user!.uid)
+              .set(
+            {
+              'username': username,
+              'email': email,
+              'image_url': url,
+            },
+          );
+        }
       }
     } on FirebaseAuthException catch (e) {
       print('exception: $e');

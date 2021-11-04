@@ -41,6 +41,7 @@ dependencies:
   firebase_auth: ^3.0.1
   firebase_messaging: ^10.0.5
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,15 +1,44 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/messages.dart';
 import '../widgets/new_message.dart';
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
   static const routeName = '/chat';
 
   static const chat_collection = '/chat';
 
   const ChatScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  late FirebaseMessaging messaging;
+
+  @override
+  void initState() {
+    super.initState();
+
+    messaging = FirebaseMessaging.instance;
+    messaging.getToken().then((value) {
+      print(value);
+    });
+
+    FirebaseMessaging.onMessage.listen((RemoteMessage event) {
+      print("firebase cloud message received");
+      print(event.notification!.body);
+    });
+
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+      print('Message clicked!');
+    });
+
+    print('\n init chat state \n');
+  }
 
   @override
   Widget build(BuildContext context) {

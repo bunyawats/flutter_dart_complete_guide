@@ -14,8 +14,13 @@
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/flutter_dart_complete_guide.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_dart_complete_guide.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chat_app/chat_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/chat_app_main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chat_app/screens/chat_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/screens/chat_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +28,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/bunyawatsingchai/.android/avd/Pixel_4_API_31.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -63,7 +69,7 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.08355438" />
     <property name="project.structure.side.proportion" value="0.17038006" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.language.Kotlin" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -106,6 +112,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Flutter.chat_app_main.dart" />
+        <item itemvalue="Flutter.shop_app_main.dart" />
+        <item itemvalue="Flutter.personal_expense_app_main.dart" />
+        <item itemvalue="Flutter.meals_app_main.dart" />
+        <item itemvalue="Flutter.great_place_app_main.dart" />
       </list>
     </recent_temporary>
   </component>

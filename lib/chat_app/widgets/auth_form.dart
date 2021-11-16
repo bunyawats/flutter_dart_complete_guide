@@ -81,6 +81,9 @@ class _AuthFormState extends State<AuthForm> {
                 children: <Widget>[
                   if (!_isLogin) UserImagePicker(_pickedImage),
                   TextFormField(
+                    autocorrect: false,
+                    textCapitalization: TextCapitalization.none,
+                    enableSuggestions: false,
                     key: ValueKey('email'),
                     validator: (value) {
                       if (value == null ||
@@ -102,6 +105,9 @@ class _AuthFormState extends State<AuthForm> {
                   if (!_isLogin)
                     TextFormField(
                       key: ValueKey('userName'),
+                      autocorrect: true,
+                      textCapitalization: TextCapitalization.words,
+                      enableSuggestions: false,
                       validator: (value) {
                         if (value == null ||
                             value.isEmpty ||

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MessageBubble extends StatelessWidget {
@@ -19,7 +18,6 @@ class MessageBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       children: [
         Row(

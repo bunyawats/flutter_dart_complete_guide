@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/auth_screen.dart';
 import 'screens/chat_screen.dart';
+import 'screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,6 +48,9 @@ class ChatApp extends StatelessWidget {
       home: StreamBuilder(
           stream: _auth.authStateChanges(),
           builder: (ctx, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return SplashScreen();
+            }
             if (snapshot.hasData) {
               return ChatScreen();
             } else {

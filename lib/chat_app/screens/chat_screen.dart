@@ -17,14 +17,12 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  //late FirebaseMessaging fbm;
 
   @override
   void initState() {
     super.initState();
 
-    // fbm = FirebaseMessaging.instance;
-    // fbm.requestPermission();
+    FirebaseMessaging.instance.subscribeToTopic('chat');
 
     FirebaseMessaging.onMessage.listen((RemoteMessage event) {
       print("firebase cloud message received");

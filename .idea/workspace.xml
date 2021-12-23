@@ -10,21 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29815259-936e-4515-8d9d-507e73ac4069" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/chat_app/screens/splash_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chat_app/chat_app_main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/chat_app_main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chat_app/screens/chat_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/screens/chat_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chat_app/widgets/auth_form.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/widgets/auth_form.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chat_app/widgets/message_bubble.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/widgets/message_bubble.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chat_app/widgets/new_message.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chat_app/widgets/new_message.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/personal_expense_app/widget/new_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/personal_expense_app/widget/new_transaction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop_app/screens/edit_product_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop_app/screens/edit_product_screen.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[bf141504]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/bunyawatsingchai/.android/avd/Pixel_4_API_31.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -57,9 +52,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/android/app" />
     <property name="project.structure.last.edited" value="Problems" />

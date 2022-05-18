@@ -10,11 +10,11 @@ class UserProductLineItem extends StatelessWidget {
   final String imageUrl;
 
   const UserProductLineItem({
-    Key? key,
+    super.key,
     required this.productId,
     required this.title,
     required this.imageUrl,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

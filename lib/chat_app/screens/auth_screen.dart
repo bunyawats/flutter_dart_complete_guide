@@ -10,7 +10,7 @@ import '../widgets/auth_form.dart';
 class AuthScreen extends StatefulWidget {
   static const routeName = '/auth';
 
-  const AuthScreen({Key? key}) : super(key: key);
+  const AuthScreen({super.key});
 
   @override
   State<AuthScreen> createState() => _AuthScreenState();

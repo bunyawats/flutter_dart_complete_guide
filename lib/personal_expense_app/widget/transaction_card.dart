@@ -7,8 +7,8 @@ class TransactionCard extends StatelessWidget {
 
   TransactionCard({
     required this.transaction,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

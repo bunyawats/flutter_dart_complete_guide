@@ -10,8 +10,8 @@ class LocationInput extends StatefulWidget {
 
   const LocationInput(
     this.onSelectPlace, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _LocationInputState createState() => _LocationInputState();

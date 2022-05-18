@@ -5,10 +5,10 @@ class Result extends StatelessWidget {
   final VoidCallback resetQuiz;
 
   const Result({
-    Key? key,
+    super.key,
     required this.resultScore,
     required this.resetQuiz,
-  }) : super(key: key);
+  });
 
   String get resultPhase {
     String resultText;

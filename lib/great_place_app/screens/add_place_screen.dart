@@ -11,7 +11,7 @@ import '../widgets/location_input.dart';
 class AddPlaceScreen extends StatefulWidget {
   static const routeName = '/add-place';
 
-  const AddPlaceScreen({Key? key}) : super(key: key);
+  const AddPlaceScreen({super.key});
 
   @override
   State<AddPlaceScreen> createState() => _AddPlaceScreenState();

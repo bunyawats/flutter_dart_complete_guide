@@ -8,8 +8,7 @@ class CategoryMealsScreen extends StatefulWidget {
 
   final List<Meal> availableMeals;
 
-  const CategoryMealsScreen({Key? key, required this.availableMeals})
-      : super(key: key);
+  const CategoryMealsScreen({super.key, required this.availableMeals});
 
   @override
   _CategoryMealsScreenState createState() => _CategoryMealsScreenState();

@@ -9,10 +9,10 @@ class MeralDetailScreen extends StatelessWidget {
   final Function isMealFavorite;
 
   const MeralDetailScreen({
-    Key? key,
+    super.key,
     required this.toggleFavorite,
     required this.isMealFavorite,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

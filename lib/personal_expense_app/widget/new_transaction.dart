@@ -7,7 +7,7 @@ import 'adaptive_button.dart';
 class NewTransactionCard extends StatefulWidget {
   final Function callBack;
 
-  NewTransactionCard({Key? key, required this.callBack}) : super(key: key);
+  NewTransactionCard({super.key, required this.callBack});
 
   @override
   _NewTransactionCardState createState() => _NewTransactionCardState();

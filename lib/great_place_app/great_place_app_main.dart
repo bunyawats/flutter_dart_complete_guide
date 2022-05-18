@@ -9,7 +9,7 @@ import 'screens/places_list_screen.dart';
 void main() => runApp(GreatPlaceApp());
 
 class GreatPlaceApp extends StatelessWidget {
-  const GreatPlaceApp({Key? key}) : super(key: key);
+  const GreatPlaceApp({super.key});
 
   @override
   Widget build(BuildContext context) {

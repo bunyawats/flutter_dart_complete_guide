@@ -8,7 +8,7 @@ import 'map_screen.dart';
 class PlaceDetailScreen extends StatelessWidget {
   static const routeName = '/place-detail';
 
-  const PlaceDetailScreen({Key? key}) : super(key: key);
+  const PlaceDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

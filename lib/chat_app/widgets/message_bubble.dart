@@ -13,8 +13,8 @@ class MessageBubble extends StatelessWidget {
     this.username,
     this.userImage,
     this.isMe, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

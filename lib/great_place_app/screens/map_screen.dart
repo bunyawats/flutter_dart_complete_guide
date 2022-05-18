@@ -7,14 +7,14 @@ class MapScreen extends StatefulWidget {
   final bool isSelecting;
 
   const MapScreen({
-    Key? key,
+    super.key,
     this.initialLocation = const PlaceLocation(
       latitude: 13.7189819,
       longitude: 100.8639551,
       address: 'NA',
     ),
     this.isSelecting = false,
-  }) : super(key: key);
+  });
 
   @override
   _MapScreenState createState() => _MapScreenState();

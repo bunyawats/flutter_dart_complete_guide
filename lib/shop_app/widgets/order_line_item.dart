@@ -9,9 +9,9 @@ class OrderLineItem extends StatefulWidget {
   final OrderItem order;
 
   const OrderLineItem({
-    Key? key,
+    super.key,
     required this.order,
-  }) : super(key: key);
+  });
 
   @override
   _OrderLineItemState createState() => _OrderLineItemState();

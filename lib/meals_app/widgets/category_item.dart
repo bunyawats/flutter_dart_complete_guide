@@ -8,11 +8,11 @@ class CategoryItem extends StatelessWidget {
   final Color color;
 
   CategoryItem({
-    Key? key,
+    super.key,
     required this.id,
     required this.title,
     required this.color,
-  }) : super(key: key);
+  });
 
   void _selectCategory(BuildContext ctx) {
     // Navigator.of(ctx).push(

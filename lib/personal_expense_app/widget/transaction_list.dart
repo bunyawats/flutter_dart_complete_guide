@@ -8,10 +8,10 @@ class TransactionList extends StatelessWidget {
   final Function callBack;
 
   const TransactionList({
-    Key? key,
+    super.key,
     required this.transactions,
     required this.callBack,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

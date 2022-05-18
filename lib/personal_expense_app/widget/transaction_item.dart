@@ -7,12 +7,12 @@ import '../model/transaction.dart';
 
 class TransactionItem extends StatefulWidget {
   const TransactionItem({
-    Key? key,
+    super.key,
     required this.currentTx,
     required this.theme,
     required this.mediaQuery,
     required this.callBack,
-  }) : super(key: key);
+  });
 
   final Transaction currentTx;
   final ThemeData theme;

@@ -18,8 +18,8 @@ class AuthForm extends StatefulWidget {
   const AuthForm(
     this.onSummit,
     this.isLoading, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<AuthForm> createState() => _AuthFormState();

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'message_bubble.dart';
 
 class Messages extends StatelessWidget {
-  const Messages({Key? key}) : super(key: key);
+  const Messages({super.key});
 
   static const chat_collection = 'chat';
 

@@ -7,10 +7,9 @@ class AdaptiveButton extends StatelessWidget {
   final VoidCallback _presentDatePicker;
   final String _title;
 
-  const AdaptiveButton({Key? key, presentDatePicker, title})
+  const AdaptiveButton({super.key, presentDatePicker, title})
       : _presentDatePicker = presentDatePicker,
-        _title = title,
-        super(key: key);
+        _title = title;
 
   @override
   Widget build(BuildContext context) {

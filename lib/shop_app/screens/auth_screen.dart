@@ -86,8 +86,8 @@ class AuthScreen extends StatelessWidget {
 
 class AuthCard extends StatefulWidget {
   const AuthCard({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   _AuthCardState createState() => _AuthCardState();
@@ -276,6 +276,7 @@ class _AuthCardState extends State<AuthCard>
                   if (value == null || value.isEmpty || !value.contains('@')) {
                     return 'Invalid email!';
                   }
+                  return null;
                 },
                 onSaved: (value) {
                   _authData['email'] = value!;
@@ -289,6 +290,7 @@ class _AuthCardState extends State<AuthCard>
                   if (value == null || value.isEmpty || value.length < 5) {
                     return 'Password is too short!';
                   }
+                  return null;
                 },
                 onSaved: (value) {
                   _authData['password'] = value!;
